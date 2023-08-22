@@ -19,29 +19,29 @@
   margin: auto;
   background-color: rgba(250, 250, 250, 0.5);
   flex-direction: column;
-
-  /* justify-content: center; */
   align-items: center;
 }
 
 .brandName {
-  color: white;
-  color: #0edd37;
   color: black;
   font-family: 'Montserrat', sans-serif;
   font-size: 120px;
   font-weight: 700;
+  /* margin-bottom: 30px; */
 }
 
 .homeBtn {
   background-color: rgb(8, 195, 8);
   color: white;
   text-decoration: none;
-  padding: 0 20px;
+  padding: 10px 30px;
   border-radius: 30px;
   font-size: 17px;
   font-weight: bold;
   transition: 0.5s;
+  /* border: 2px solid rgb(8, 195, 8); */
+  position: relative;
+  bottom: 40px;
 }
 
 .homeBtn:hover {
