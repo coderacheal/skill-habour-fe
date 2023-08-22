@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+@import './styles/landingpage.css';
+@import './styles/dashboard.css';
+@import './styles/homepage.css';
+@import './styles/socials.css';
+
 body {
   margin: 0;
   font-family:

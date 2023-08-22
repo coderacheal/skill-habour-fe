@@ -1,0 +1,11 @@
+.socials {
+  position: relative;
+  top: 200px;
+  width: 60%;
+  margin: auto;
+}
+
+.fa-brands {
+  margin-right: 15px;
+  font-size: 20px;
+}
