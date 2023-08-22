@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
-import Dashboard from './Dashboard';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { useSelector, useDispatch } from 'react-redux';
 import { CustomNextArrow, CustomPrevArrow } from './CarouselArrows';
-import pottery from '../assets/pottery.jpg';
+import { fetchCourses } from '../features/courseSlice';
+import Dashboard from './Dashboard';
 
 const HomePage = () => {
+  const { courses } = useSelector((store) => store.courses);
+  // const { crypto } = useSelector((store) => store.crypto);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCourses());
+  }, [dispatch]);
+
+  console.log(courses);
+
   const settings = {
     dots: false,
     infinite: true,
@@ -27,30 +38,23 @@ const HomePage = () => {
         <p className="fade">{'.'.repeat(50)}</p>
         <div className="sliderDiv">
           <Slider {...settings} className="slider">
-            <div>
-              <Link to="/" className="imageNameLink">
-                <div className="eachClass">
-                  <img src={pottery} alt="pottery class" className="classThumbnail" />
-                  <h2 className="courseName">Pottery</h2>
+            {courses.map((course) => (
+              <div key={course.id}>
+                <Link to="/" className="imageNameLink">
+                  <div className="eachClass">
+                    <img src={course.image} alt="pottery class" className="classThumbnail" />
+                    <h2 className="courseName">{course.name}</h2>
+                  </div>
+                </Link>
+                <p className="dots">{'.'.repeat(20)}</p>
+                <p className="classDescription">{course.description}</p>
+                <div className="socialLinksForCourses">
+                  <a href="https://github.com/coderacheal" target="blank"><i aria-label="Input Label" className="fa-brands fa-facebook course_socials" /></a>
+                  <a href="https://twitter.com/racheal_kubi" target="blank"><i aria-label="Input Label" className="fa-brands fa-twitter course_socials" /></a>
+                  <a href="https://medium.com/@coderacheal" target="blank"><i aria-label="Input Label" className="fa-regular fa-envelope course_socials" /></a>
                 </div>
-              </Link>
-              <p className="dots">{'.'.repeat(20)}</p>
-              <p className="classDescription">This is a pottery class to get you started in world of pots. Beginners can start small and graduate</p>
-              <div className="socialLinksForCourses">
-                <a href="https://github.com/coderacheal" target="blank"><i aria-label="Input Label" className="fa-brands fa-facebook course_socials" /></a>
-                <a href="https://twitter.com/racheal_kubi" target="blank"><i aria-label="Input Label" className="fa-brands fa-twitter course_socials" /></a>
-                <a href="https://medium.com/@coderacheal" target="blank"><i aria-label="Input Label" className="fa-regular fa-envelope course_socials" /></a>
               </div>
-            </div>
-            <div>
-              <h3>couse 3</h3>
-            </div>
-            <div>
-              <h3>couse 3</h3>
-            </div>
-            <div>
-              <h3>couse 3</h3>
-            </div>
+            ))}
           </Slider>
         </div>
       </div>
