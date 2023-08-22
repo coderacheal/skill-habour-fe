@@ -1,8 +1,10 @@
 .homePage {
   display: grid;
-  grid-template-columns: 15% 85%;
+  grid-template-columns: 20% 80%;
   height: 100vh;
 }
+
+/* Dashboard  */
 
 .dashboard {
   background-color: aliceblue;
@@ -15,8 +17,24 @@
   margin-top: 30px;
 }
 
+.dashboardNavigations {
+  text-align: center;
+}
+
 .navigation {
   display: flex;
   flex-direction: column;
+  text-align: left;
+  gap: 10px;
+}
+
+.links {
+  padding: 10px;
+  font-size: 18px;
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
 }
 
