@@ -42,6 +42,7 @@
   /* border: 2px solid rgb(8, 195, 8); */
   position: relative;
   bottom: 40px;
+  transition: .5s;
 }
 
 .homeBtn:hover {
