@@ -1,4 +1,4 @@
-.homePage {
+.wrapper {
   display: grid;
   grid-template-columns: 20% 80%;
   height: 100vh;
@@ -11,7 +11,7 @@
 }
 
 .skill-share-logo {
-  height: 150px;
+  height: 130px;
   display: block;
   margin: auto;
   margin-top: 30px;
