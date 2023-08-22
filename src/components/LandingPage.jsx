@@ -8,6 +8,7 @@ const LandingPage = () => (
       <Link to="/home" className="homeBtn">
         <p>Learn for free</p>
       </Link>
+
     </div>
   </div>
 );
