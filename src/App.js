@@ -1,9 +1,10 @@
-import { BrowserRouter as Router, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LandingPage from './components/LandingPage';
 
 const App = () => (
   <Router>
     <Routes>
-      <div className="App" />
+      <Route path="/" element={<LandingPage />} />
     </Routes>
   </Router>
 );
