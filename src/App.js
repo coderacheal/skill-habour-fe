@@ -1,9 +1,12 @@
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-    </div>
+    <Router>
+      <Routes>
+        <div className="App" />
+      </Routes>
+    </Router>
   );
 }
 
