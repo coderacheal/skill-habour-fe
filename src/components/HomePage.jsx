@@ -40,7 +40,7 @@ const HomePage = () => {
           <Slider {...settings} className="slider">
             {courses.map((course) => (
               <div key={course.id}>
-                <Link to="/" className="imageNameLink">
+                <Link to={`/courses/${course.name}`} className="imageNameLink">
                   <div className="eachClass">
                     <img src={course.image} alt="pottery class" className="classThumbnail" />
                     <h2 className="courseName">{course.name}</h2>
