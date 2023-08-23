@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCourseDetails } from '../features/courseSlice';
+import { getCourseDetails, fetchCourses } from '../features/courseSlice';
 
 const CourseDetails = () => {
   const { courses } = useSelector((store) => store.courses);
@@ -9,6 +9,7 @@ const CourseDetails = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(fetchCourses());
     dispatch(getCourseDetails(courseName));
   }, [dispatch, courses, courseName]);
 
@@ -22,7 +23,9 @@ const CourseDetails = () => {
           <div className="courseDetails">
             <img key={course.id} src={course.image} alt="coin" className="image" />
             <p key={course.id}>
-              Name : {course.name}
+              Name :
+              {' '}
+              {course.name}
             </p>
             <Link to="/auth">Reserve</Link>
           </div>

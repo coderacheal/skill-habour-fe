@@ -10,7 +10,6 @@ import Dashboard from './Dashboard';
 
 const HomePage = () => {
   const { courses } = useSelector((store) => store.courses);
-  // const { crypto } = useSelector((store) => store.crypto);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -37,6 +36,7 @@ const HomePage = () => {
         <p className="fade">Select a course you would like to take</p>
         <p className="fade">{'.'.repeat(50)}</p>
         <div className="sliderDiv">
+          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
           <Slider {...settings} className="slider">
             {courses.map((course) => (
               <div key={course.id}>

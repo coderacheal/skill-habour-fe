@@ -4,7 +4,6 @@
   grid-template-columns: 20% 80%;
   height: 100vh;
   font-family: 'Montserrat', sans-serif;
-
 }
 
 .availableClasses {
@@ -12,14 +11,12 @@
   margin-top: 40px;
 }
 
-
 .classThumbnail {
   height: 250px;
   width: 250px;
   border-radius: 50%;
   margin: auto;
   box-shadow: 15px 15px 40px 0 rgba(0, 0, 0, 0.3);
-
 }
 
 .fade {
@@ -36,6 +33,7 @@
 
 .dots {
   margin: 10px;
+
   /* margin-bottom: 10px; */
   color: grey;
   font-size: 25px;
@@ -62,4 +60,3 @@
 .image {
   height: 300px;
 }
-
