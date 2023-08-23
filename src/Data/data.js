@@ -1,20 +1,20 @@
 import pottery from '../assets/pottery.jpg';
-import swimming from '../assets/background.jpg';
-import music from '../assets/bg.jpg';
-import cooking from '../assets/newBg.jpg';
+import swimming from '../assets/swimming.jpg';
+import music from '../assets/music.jpg';
+import cooking from '../assets/cooking.jpg';
 
 const courses = [
   {
     id: 1,
-    name: 'Pottery',
-    description: 'Dive into the world of clay and ceramics, where you\'ll learn to craft beautiful pottery pieces',
-    image: pottery,
+    name: 'Cooking',
+    description: 'Discover the secrets of gourmet meals. From beginner basics to gourmet recipes.',
+    image: cooking,
   },
   {
     id: 2,
-    name: 'Swimming',
-    description: 'Make a splash! Dive into the world of aquatic fitness and water safety',
-    image: swimming,
+    name: 'Pottery',
+    description: 'Dive into the world of clay and ceramics, where you\'ll learn to craft beautiful pottery pieces',
+    image: pottery,
   },
   {
     id: 3,
@@ -24,10 +24,11 @@ const courses = [
   },
   {
     id: 4,
-    name: 'Cooking',
-    description: 'Discover the secrets of gourmet meals. From beginner basics to gourmet recipes.',
-    image: cooking,
+    name: 'Swimming',
+    description: 'Make a splash! Dive into the world of aquatic fitness and water safety',
+    image: swimming,
   },
+
 ];
 
 export default courses;
