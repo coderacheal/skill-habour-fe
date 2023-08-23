@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { AddnewCourse } from '../features/CoursesSlice'; // this will be gained from rudux after api done
+import { AddnewCourse } from '../features/addCoureSlice'; // this will be gained from rudux after api done
 
 const AddCourse = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const storage = localStorage.getItem('token');
   const user = JSON.parse(storage);
   const [courseDatas, setCourseDatas] = useState({
@@ -97,7 +98,7 @@ const AddCourse = () => {
                   name="photo"
                   onChange={(e) => {
                     const file = e.target.files[0];
-                    setCarDatas({ ...courseDatas, photo: file });
+                    setCourseDatas({ ...courseDatas, photo: file });
                   }}
                   className="form-control"
                   id="courseImage"
