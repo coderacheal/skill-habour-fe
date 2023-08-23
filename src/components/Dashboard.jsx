@@ -12,7 +12,7 @@ const Dashboard = () => {
       <div className="dashboardNavigations">
         <h2>Dashboard</h2>
         <ul className="navigation">
-          <Link to="/home" className={` links ${(pathname === '/home') ? 'active' : ''}`}>Courses</Link>
+          <Link to="/courses" className={` links ${(pathname === '/courses') ? 'active' : ''}`}>Courses</Link>
           <Link to="/reservations" className={`links ${(pathname === '/reservations') ? 'active' : ''}`}>Reserve Course</Link>
           <Link to="/my_reservations" className={` links ${(pathname === '/my_reservations') ? 'active' : ''}`}>My Reservations</Link>
           <Link to="/delete_reservation" className={`links ${(pathname === '/delete_reservation') ? 'active' : ''}`}>Delete Reservation</Link>

@@ -1,5 +1,62 @@
+
 .wrapper {
   display: grid;
   grid-template-columns: 20% 80%;
   height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.availableClasses {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.classThumbnail {
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  margin: auto;
+  box-shadow: 15px 15px 40px 0 rgba(0, 0, 0, 0.3);
+}
+
+.fade {
+  color: rgb(150, 150, 150);
+}
+
+.imageNameLink {
+  text-decoration: none;
+}
+
+.courseName {
+  margin-bottom: 0;
+}
+
+.dots {
+  margin: 10px;
+
+  /* margin-bottom: 10px; */
+  color: grey;
+  font-size: 25px;
+}
+
+.classDescription {
+  width: 60%;
+  margin: auto;
+  font-weight: 400;
+}
+
+.socialLinksForCourses {
+  margin-top: 20px;
+}
+
+.course_socials {
+  /* background-color: rgb(203, 203, 203); */
+  padding: 5px;
+  color: grey;
+  border-radius: 50%;
+  border: 3px solid rgb(203, 203, 203);
+}
+
+.image {
+  height: 300px;
 }

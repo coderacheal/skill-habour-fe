@@ -5,8 +5,10 @@ const LandingPage = () => (
   <div className="landingPage">
     <div className="brandNameWrapper">
       <h1 className="brandName">Skill Habour</h1>
-      <Link to="/home" className="homeBtn">
-        <p>Learn for free</p>
+      <Link to="/courses" className="homeBtn">
+        Learn for free
+        {' '}
+        <i aria-label="Input Label" className="fa-solid fa-house" />
       </Link>
     </div>
   </div>
