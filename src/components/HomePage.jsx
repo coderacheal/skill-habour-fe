@@ -16,7 +16,7 @@ const HomePage = () => {
     dispatch(fetchCourses());
   }, [dispatch]);
 
-  console.log(courses);
+  // console.log(courses);
 
   const settings = {
     dots: false,
