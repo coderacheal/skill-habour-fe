@@ -10,7 +10,7 @@ const Authentication = () => {
 
   });
   // const [errors, setErrors] = useState([]);
-  
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -32,19 +32,16 @@ const Authentication = () => {
         // console.log(data)
         console.log('Registration successful:', data);
         // Redirect or show success message
-
       } else {
         const errorData = await response.json();
-        console.log(formData)
+        console.log(formData);
         console.error('Registration error:', errorData);
         // Handle error (show error message)
-
       }
     } catch (error) {
       console.error('Registration error:', error);
-      console.log(formData)
+      console.log(formData);
       // Handle network or other errors
-
     }
   };
 
