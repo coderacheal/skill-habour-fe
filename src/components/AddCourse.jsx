@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { AddnewCourse } from '../features/addCoureSlice'; // this will be gained from rudux after api done
+import { addNewCourse } from '../features/addCoureSlice'; // this will be gained from rudux after api done
 
 const AddCourse = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const AddCourse = () => {
     description: '',
     photo: '',
     price: '',
-    user_id: user.id || null,
+    user_id: user && user.id ? user.id : null,
   });
 
   const [success, setSuccess] = useState('');
@@ -36,7 +36,7 @@ const AddCourse = () => {
     formData.append('course[price]', courseDatas.price);
     formData.append('course[user_id]', courseDatas.user_id);
 
-    await dispatch(AddnewCourse(formData));
+    await dispatch(addNewCourse(formData));
     setCourseDatas({
       name: '',
       description: '',
