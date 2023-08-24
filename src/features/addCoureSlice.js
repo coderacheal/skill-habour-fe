@@ -1,37 +1,33 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const baseUrl = ''; // we will find the api url from back end
+const baseUrl = ''; // Replace this with the appropriate API URL
 
-export const AddnewCourse = createAsyncThunk(
-  'api/AddnewCourse',
+export const addNewCourse = createAsyncThunk(
+  'course/addNewCourse',
   async (payload) => {
-    const response = await fetch(`${baseUrl}/course`, {
-      method: 'POST',
-      body: payload,
-    });
-    const data = await response.json();
-    return data;
+    const response = await axios.post(`${baseUrl}/course`, payload);
+    return response.data;
   },
 );
 
-export const getCourses = createAsyncThunk('course/getCourse', async () => {
+export const getCourses = createAsyncThunk('course/getCourses', async () => {
   const response = await axios.get(`${baseUrl}/courses`);
   return response.data;
 });
 
-export const Course = createAsyncThunk('course/Course', async (payload) => {
+export const getCourse = createAsyncThunk('course/getCourse', async (payload) => {
   const response = await axios.get(`${baseUrl}/courses/${payload}`);
   return response.data;
 });
 
-export const Deletecourse = createAsyncThunk('course/Deletecourse', async (payload) => {
+export const deleteCourse = createAsyncThunk('course/deleteCourse', async (payload) => {
   const response = await axios.delete(`${baseUrl}/courses/${payload}`);
   return response.data;
 });
 
-export const userCourse = createAsyncThunk('course/userCourse', async (payload) => {
-  const response = await axios.get(`${baseUrl}/courses/courses?id=${payload}`);
+export const getUserCourses = createAsyncThunk('course/getUserCourses', async (payload) => {
+  const response = await axios.get(`${baseUrl}/courses`, { params: { id: payload } });
   return response.data;
 });
 
@@ -41,29 +37,31 @@ const initialState = {
   userCourses: [],
 };
 
-const CourseSlice = createSlice({
+const courseSlice = createSlice({
   name: 'course',
   initialState,
   reducers: {
-    addCourse: (state, action) => {
-      state.cars.push(action.payload);
-    },
+    addCourse: (state, action) => ({
+      ...state,
+      courses: [...state.courses, action.payload],
+    }),
   },
   extraReducers: (builder) => {
-    builder.addCase(Course.fulfilled, (state, action) => {
-      state.course = action.payload;
-    });
-    builder.addCase(getCourses.fulfilled, (state, action) => {
-      state.courses = action.payload;
-    });
-
-    builder.addCase(userCourse.fulfilled, (state, action) => {
-      state.userCourses = action.payload;
-    });
+    builder.addCase(getCourse.fulfilled, (state, action) => ({
+      ...state,
+      course: action.payload,
+    }));
+    builder.addCase(getCourses.fulfilled, (state, action) => ({
+      ...state,
+      courses: action.payload,
+    }));
+    builder.addCase(getUserCourses.fulfilled, (state, action) => ({
+      ...state,
+      userCourses: action.payload,
+    }));
   },
-
 });
 
-export const { addCourse } = CourseSlice.actions;
+export const { addCourse } = courseSlice.actions;
 
-export default CourseSlice.reducer;
+export default courseSlice.reducer;
