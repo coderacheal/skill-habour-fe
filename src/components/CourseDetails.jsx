@@ -27,7 +27,7 @@ const CourseDetails = () => {
               {' '}
               {course.name}
             </p>
-            <Link to="/auth">Reserve</Link>
+            <Link to="/reservation">Reserve</Link>
           </div>
         </div>
       ))}
