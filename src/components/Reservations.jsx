@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import TestRideForm from './TestRideForm';
-import '../styles/TestRideForm.css'; // Assuming this is the component you've created for the form
+import '../styles/TestRideForm.css';
 
 const Reservations = () => {
   const location = useLocation();
