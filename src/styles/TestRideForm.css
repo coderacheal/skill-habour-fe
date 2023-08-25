@@ -1,0 +1,65 @@
+/* TestRideForm.css */
+/* You can adjust these styles to match your design */
+
+/* Container */
+.reservation-form-container {
+    max-width: 400px;
+    margin: 5% auto;
+    padding: 5%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #dcfafc;
+  }
+  
+  /* Form Title */
+  .reservation-form-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Form Input Fields */
+  .reservation-form-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .reservation-form-container input[type="text"],
+  .reservation-form-container input[type="email"],
+  .reservation-form-container input[type="date"],
+  .reservation-form-container input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  /* Submit Button */
+  .reservation-form-container button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .reservation-form-container button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 480px) {
+    .reservation-form-container {
+      max-width: 100%;
+      padding: 10px;
+    }
+  }
+  
+  .title {
+    width: 100%;
+    text-align: center;
+  }
+  
