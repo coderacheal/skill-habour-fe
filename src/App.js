@@ -5,6 +5,7 @@ import MyReservations from './components/MyReservations';
 import DeleteReservations from './components/DeleteReservations';
 import HomePage from './components/HomePage';
 import CourseDetails from './components/CourseDetails';
+import AddCourse from './components/AddCourse';
 
 const App = () => (
   <Router>
@@ -14,6 +15,7 @@ const App = () => (
       <Route path="/courses/:courseName" element={<CourseDetails />} />
       <Route path="/reservations" element={<Reservations />} />
       <Route path="/my_reservations" element={<MyReservations />} />
+      <Route path="/add_course" element={<AddCourse />} />
       <Route path="/delete_reservation" element={<DeleteReservations />} />
     </Routes>
   </Router>
