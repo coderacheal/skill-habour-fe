@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {
-  handleUpdate, logInUser, registerUser, toggleFormAuth,
+  handleUpdate, logInUser, registerUser, toggleAuthentication,
 } from '../features/authenticationSlice';
 
 const Authentication = () => {
@@ -22,7 +22,7 @@ const Authentication = () => {
     },
   } = useSelector((state) => state.auth);
 
-  const formAuth = useSelector((state) => state.auth.formAuth);
+  const authenticate = useSelector((state) => state.auth.authenticate);
 
   const handleRegister = () => {
     dispatch(
@@ -55,7 +55,7 @@ const Authentication = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formAuth === 'login') {
+    if (authenticate === 'login') {
       handleLogIn(e);
     } else {
       handleRegister(e);
@@ -63,13 +63,13 @@ const Authentication = () => {
   };
 
   return (
-    <main >
+    <main>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <h1 >
-          {formAuth === 'login' ? 'Log In' : 'Register'}
+        <h1>
+          {authenticate === 'login' ? 'Log In' : 'Register'}
         </h1>
-        {formAuth === 'register' && (
-          <div >
+        {authenticate === 'register' && (
+          <div>
             <input
               type="text"
               placeholder="username"
@@ -92,7 +92,7 @@ const Authentication = () => {
             required
           />
         </div>
-        <div >
+        <div>
           <input
             type="password"
             placeholder="password"
@@ -103,7 +103,7 @@ const Authentication = () => {
             required
           />
         </div>
-        {formAuth === 'register' && (
+        {authenticate === 'register' && (
           <div className="field">
             <input
               type="password"
@@ -117,14 +117,14 @@ const Authentication = () => {
           </div>
         )}
         <button type="submit" className="submit-btn">
-          {formAuth === 'login' ? 'Log In' : 'Register'}
+          {authenticate === 'login' ? 'Log In' : 'Register'}
         </button>
-        {formAuth === 'login' ? (
+        {authenticate === 'login' ? (
           <>
             <p>Don&apos;t have an account?</p>
             <button
               type="button"
-              onClick={() => dispatch(toggleFormAuth())}
+              onClick={() => dispatch(toggleAuthentication())}
               className="switch-auth"
             >
               Register
@@ -135,7 +135,7 @@ const Authentication = () => {
             <p>Already have an account?</p>
             <button
               type="button"
-              onClick={() => dispatch(toggleFormAuth())}
+              onClick={() => dispatch(toggleAuthentication())}
               className="switch-auth"
             >
               Log In
@@ -143,9 +143,6 @@ const Authentication = () => {
           </>
         )}
       </form>
-      <button type="submit" className="submit-btn">
-          {formAuth === 'login' ? 'Log In' : 'Register'}
-        </button>
     </main>
   );
 };

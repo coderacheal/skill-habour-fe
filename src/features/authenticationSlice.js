@@ -19,8 +19,9 @@ const initialState = {
   },
   isLoading: false,
   errors: null,
-  formAuth: 'login',
+  authenticate: 'login',
 };
+
 
 export const registerUser = createAsyncThunk(
   'auth/register',
@@ -43,7 +44,7 @@ export const logInUser = createAsyncThunk(
     try {
       const response = await axios.post(`${baseUrl}/users/sign_in`, userInput);
       // eslint-disable-next-line dot-notation
-      const sessionToken = response.headers.authorization
+      const sessionToken = response.headers.authorization;
       response.data.sessionToken = sessionToken;
       return response.data;
     } catch (error) {
@@ -77,30 +78,34 @@ const authSlice = createSlice({
       const sessionUser = { ...state.sessionUser, [name]: value };
       return { ...state, sessionUser };
     },
-    toggleFormAuth: (state) => ({
+    toggleAuthentication: (state) => ({
       ...state,
-      formAuth: state.formAuth === 'login' ? 'register' : 'login',
+      authenticate: state.authenticate === 'login' ? 'register' : 'login',
     }),
     toRegister: (state) => ({
       ...state,
-      formAuth: 'register',
+      authenticate: 'register',
     }),
     toLogin: (state) => ({
       ...state,
-      formAuth: 'login',
+      authenticate: 'login',
     }),
   },
 
   extraReducers: (builder) => {
     builder
-      .addCase(registerUser.fulfilled, (state) => ({
-        ...state,
-        isLoading: false,
-        sessionUser: {
-          username: '',
-          confirmPassword: '',
-        },
-      }));
+      .addCase(registerUser.fulfilled, (state, { payload }) => {
+        setLocalStorage('token', payload.sessionToken);
+        setLocalStorage('user', payload.status.data);
+        return {
+          ...state,
+          isLoading: false,
+          sessionUser: {
+            username: '',
+            confirmPassword: '',
+          },
+        };
+      });
 
     builder
       .addCase(logInUser.fulfilled, (state, { payload }) => {
@@ -133,7 +138,7 @@ const authSlice = createSlice({
 });
 
 export const {
-  handleUpdate, toggleFormAuth, toRegister, toLogin,
+  handleUpdate, toggleAuthentication, toRegister, toLogin,
 } = authSlice.actions;
 
 export default authSlice.reducer;
