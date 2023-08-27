@@ -4,6 +4,7 @@
 @import './styles/homepage.css';
 @import './styles/socials.css';
 @import './styles/carousel_arrows.css';
+@import './styles/authentication.css';
 
 body {
   margin: 0;
