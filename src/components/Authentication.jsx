@@ -1,70 +1,152 @@
-import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import {
+  handleUpdate, logInUser, registerUser, toggleFormAuth,
+} from '../features/authenticationSlice';
 
 const Authentication = () => {
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
-    password_confirmation: '',
+  const navigate = useNavigate();
+  const isLoggedIn = useSelector((state) => state.auth.token !== null);
+  const dispatch = useDispatch();
 
-  });
-  // const [errors, setErrors] = useState([]);
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/courses');
+    }
+  }, [isLoggedIn, navigate]);
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
+  const {
+    sessionUser: {
+      username, email, password, confirmPassword,
+    },
+  } = useSelector((state) => state.auth);
+
+  const formAuth = useSelector((state) => state.auth.formAuth);
+
+  const handleRegister = () => {
+    dispatch(
+      registerUser({
+        user: {
+          username,
+          email,
+          password,
+        },
+      }),
+    );
+    navigate('/courses');
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await fetch('http://127.0.0.1:3001/users', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+  const handleLogIn = () => {
+    dispatch(
+      logInUser({
+        user: {
+          email,
+          password,
         },
-        body: JSON.stringify(formData),
-      });
+      }),
+    );
+  };
 
-      if (response.ok) {
-        const data = await response.json();
-        // console.log(data)
-        console.log('Registration successful:', data);
-        // Redirect or show success message
-      } else {
-        const errorData = await response.json();
-        console.log(formData);
-        console.error('Registration error:', errorData);
-        // Handle error (show error message)
-      }
-    } catch (error) {
-      console.error('Registration error:', error);
-      console.log(formData);
-      // Handle network or other errors
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    dispatch(handleUpdate({ name, value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (formAuth === 'login') {
+      handleLogIn(e);
+    } else {
+      handleRegister(e);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="username" value={formData.username} onChange={handleInputChange} placeholder="username" />
-      {' '}
-      <br />
-      <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="email" />
-      {' '}
-      <br />
-      <input type="password" name="password" value={formData.password} onChange={handleInputChange} placeholder="password" />
-      <br />
-      <input
-        type="password"
-        name="password_confirmation"
-        value={formData.password_confirmation}
-        onChange={handleInputChange}
-        placeholder="confirm"
-      />
-      <br />
-      <button type="submit">Register</button>
-    </form>
+    <main >
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <h1 >
+          {formAuth === 'login' ? 'Log In' : 'Register'}
+        </h1>
+        {formAuth === 'register' && (
+          <div >
+            <input
+              type="text"
+              placeholder="username"
+              id="username"
+              name="username"
+              value={username}
+              onChange={(e) => handleChange(e)}
+              required
+            />
+          </div>
+        )}
+        <div>
+          <input
+            type="email"
+            placeholder="email"
+            id="email"
+            name="email"
+            value={email}
+            onChange={(e) => handleChange(e)}
+            required
+          />
+        </div>
+        <div >
+          <input
+            type="password"
+            placeholder="password"
+            id="password"
+            name="password"
+            value={password}
+            onChange={(e) => handleChange(e)}
+            required
+          />
+        </div>
+        {formAuth === 'register' && (
+          <div className="field">
+            <input
+              type="password"
+              placeholder="confirm password"
+              id="confirmPassword"
+              name="confirmPassword"
+              value={confirmPassword}
+              onChange={(e) => handleChange(e)}
+              required
+            />
+          </div>
+        )}
+        <button type="submit" className="submit-btn">
+          {formAuth === 'login' ? 'Log In' : 'Register'}
+        </button>
+        {formAuth === 'login' ? (
+          <>
+            <p>Don&apos;t have an account?</p>
+            <button
+              type="button"
+              onClick={() => dispatch(toggleFormAuth())}
+              className="switch-auth"
+            >
+              Register
+            </button>
+          </>
+        ) : (
+          <>
+            <p>Already have an account?</p>
+            <button
+              type="button"
+              onClick={() => dispatch(toggleFormAuth())}
+              className="switch-auth"
+            >
+              Log In
+            </button>
+          </>
+        )}
+      </form>
+      <button type="submit" className="submit-btn">
+          {formAuth === 'login' ? 'Log In' : 'Register'}
+        </button>
+    </main>
   );
 };
 
