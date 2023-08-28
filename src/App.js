@@ -15,6 +15,7 @@ const App = () => (
       <Route path="/courses/:courseName" element={<CourseDetails />} />
       <Route path="/reservations" element={<Reservations />} />
       <Route path="/my_reservations" element={<MyReservations />} />
+      <Route path="/add_course" element={<AddCourse />} />
       <Route path="/delete_reservation" element={<DeleteReservations />} />
       <Route path="/auth" element={<Authentication />} />
     </Routes>
