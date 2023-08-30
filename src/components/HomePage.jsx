@@ -10,13 +10,15 @@ import Dashboard from './Dashboard';
 
 const HomePage = () => {
   const { courses } = useSelector((store) => store.courses);
+  // const { username } = useSelector((store) => store.auth.sessionUser.username);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchCourses());
   }, [dispatch]);
 
-  console.log(courses);
+  // console.log(courses);
 
   const settings = {
     dots: false,
