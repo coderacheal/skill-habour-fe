@@ -35,7 +35,7 @@ const ReservationForm = () => {
       <h2>Please Reserve your course</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="name">Name:</label>
+          {/* <label htmlFor="name">Name:</label> */}
           <input
             type="text"
             id="name"
@@ -46,7 +46,7 @@ const ReservationForm = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="email">Email:</label>
+          {/* <label htmlFor="email">Email:</label> */}
           <input
             type="email"
             id="email"
@@ -57,7 +57,7 @@ const ReservationForm = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="reservationDate">Reservation Date:</label>
+          {/* <label htmlFor="reservationDate">Reservation Date:</label> */}
           <input
             type="date"
             id="reservationDate"
@@ -68,7 +68,7 @@ const ReservationForm = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="numberOfGuests">Number of Guests:</label>
+          {/* <label htmlFor="numberOfGuests">Number of Guests:</label> */}
           <input
             type="number"
             id="numberOfGuests"
