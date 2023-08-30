@@ -14,19 +14,19 @@ const CourseDetails = () => {
   }, [dispatch, courses, courseName]);
 
   const selectedCourse = courses.filter((course) => course.name === courseName);
-  console.log(selectedCourse);
 
   return (
     <div>
       {selectedCourse.map((course) => (
-        <div className="oneCurrency" key={course.id}>
+        <div className="oneCourse" key={course.name}>
           <div className="courseDetails">
-            <img key={course.id} src={course.image} alt="coin" className="image" />
-            <p key={course.id}>
+            <img key={course.name} src={course.image} alt="course" className="image" />
+            <p key={course.name}>
               Name :
               {' '}
               {course.name}
             </p>
+            {/* {condition to navigate to authentication or login} */}
             <Link to="/auth">Reserve</Link>
           </div>
         </div>
