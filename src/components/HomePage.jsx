@@ -37,7 +37,6 @@ const HomePage = () => {
         <h1 className="ribbon">AVAILABLE COURSES</h1>
         <p className="fade">Select a course you would like to take</p>
         <p className="fade">{'.'.repeat(50)}</p>
-        {/* <p>{username}</p> */}
         <div className="sliderDiv">
           {/* eslint-disable-next-line react/jsx-props-no-spreading */}
           <Slider {...settings} className="slider">
