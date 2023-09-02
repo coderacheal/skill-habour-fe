@@ -18,7 +18,7 @@ const initialState = {
     confirmPassword: '',
   },
   isLoading: false,
-  errors: null,
+  loginError: null,
   authenticate: 'login',
 };
 
@@ -47,8 +47,8 @@ export const logInUser = createAsyncThunk(
       response.data.sessionToken = sessionToken;
       return response.data;
     } catch (error) {
-      console.error('Login error:', error);
-      return thunkAPI.rejectWithValue(error.message || 'Login failed');
+      console.log(error);
+      return thunkAPI.rejectWithValue(error.response.data || 'No user found');
     }
   },
 );
@@ -120,6 +120,10 @@ const authSlice = createSlice({
             password: '',
           },
         };
+      })
+      .addCase(logInUser.rejected, (state, action) => {
+        // Handle login error
+        state.loginError = action.payload; // This should contain the error message
       });
 
     builder
