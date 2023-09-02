@@ -27,10 +27,13 @@ export const registerUser = createAsyncThunk(
   async (userInput, thunkAPI) => {
     try {
       const response = await axios.post(`${baseUrl}/users`, userInput);
+      console.log(response)
+      const sessionToken = response.headers.authorization;
+      response.data.sessionToken = sessionToken;
       return response.data;
     } catch (error) {
       if (error.response.status === 500) {
-        return thunkAPI.rejectWithValue('username and email must be unique');
+        return thunkAPI.rejectWithValue(error.response.data ||'username and email must be unique');
       }
       return thunkAPI.rejectWithValue('something went wrong!');
     }

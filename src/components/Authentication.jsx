@@ -54,15 +54,6 @@ const Authentication = () => {
       });
   };
 
-  // const handleLogin = (userInput) => {
-  //   dispatch(logInUser(userInput))
-  //     .unwrap()
-  //     .catch((error) => {
-  //       // Error handling if needed (e.g., show a modal or toast)
-  //       console.error('Login failed:', error);
-  //     });
-  // };
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     dispatch(handleUpdate({ name, value }));
