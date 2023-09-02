@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -7,18 +7,27 @@ import { useSelector, useDispatch } from 'react-redux';
 import { CustomNextArrow, CustomPrevArrow } from './CarouselArrows';
 import { fetchCourses } from '../features/courseSlice';
 import Dashboard from './Dashboard';
+import { logOutUser } from '../features/authenticationSlice';
 
 const HomePage = () => {
   const { courses } = useSelector((store) => store.courses);
-  // const { username } = useSelector((store) => store.auth.sessionUser.username);
+  const user = useSelector((store) => store.auth.user);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchCourses());
   }, [dispatch]);
 
-  // console.log(courses);
+  const handlelogout = () => {
+    dispatch(logOutUser());
+    navigate('/courses');
+  };
+
+  const handlelogIn = () => {
+    navigate('/auth');
+  };
 
   const settings = {
     dots: false,
@@ -34,9 +43,16 @@ const HomePage = () => {
     <div className="wrapper">
       <Dashboard />
       <div className="availableClasses">
-        <h1 className="ribbon">AVAILABLE COURSES</h1>
+        <div className="ribbon-and-authentication">
+          <h1 className="ribbon">AVAILABLE COURSES</h1>
+          {user ? (
+            <button type="button" className="sign-out-btn" onClick={handlelogout}>Sign out</button>) : (
+              <button type="button" className="sign-out-btn" onClick={handlelogIn}>Sign in</button>
+          )}
+        </div>
         <p className="fade">Select a course you would like to take</p>
         <p className="fade">{'.'.repeat(50)}</p>
+
         <div className="sliderDiv">
           {/* eslint-disable-next-line react/jsx-props-no-spreading */}
           <Slider {...settings} className="slider">

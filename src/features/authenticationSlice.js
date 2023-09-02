@@ -31,8 +31,9 @@ export const registerUser = createAsyncThunk(
       response.data.sessionToken = sessionToken;
       return response.data;
     } catch (error) {
+      console.log(error);
       if (error.response.status === 500) {
-        return thunkAPI.rejectWithValue(error.response.data ||'username and email must be unique');
+        return thunkAPI.rejectWithValue(error.response.data || 'username and email must be unique');
       }
       return thunkAPI.rejectWithValue('something went wrong!');
     }
@@ -124,7 +125,7 @@ const authSlice = createSlice({
         };
       })
       .addCase(logInUser.rejected, (state, action) => {
-        // Handle login error
+        // eslint-disable-next-line no-param-reassign
         state.loginError = action.payload; // This should contain the error message
       });
 

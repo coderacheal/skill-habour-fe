@@ -8,6 +8,8 @@ import {
 const Authentication = () => {
   const loginError = useSelector((store) => store.auth.loginError);
   const isLoggedIn = useSelector((store) => store.auth.token !== null);
+  const authenticate = useSelector((state) => state.auth.authenticate);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -15,15 +17,13 @@ const Authentication = () => {
     if (isLoggedIn) {
       navigate('/courses');
     }
-  }, [isLoggedIn, navigate]);
+  }, [isLoggedIn, navigate, dispatch]);
 
   const {
     sessionUser: {
       username, email, password, confirmPassword,
     },
   } = useSelector((state) => state.auth);
-
-  const authenticate = useSelector((state) => state.auth.authenticate);
 
   const handleLogIn = () => {
     dispatch(
@@ -56,13 +56,16 @@ const Authentication = () => {
         console.error('Login failed:', error);
       });
 
-    handleLogIn();
     navigate('/courses');
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     dispatch(handleUpdate({ name, value }));
+  };
+
+  const refreshPage = () => {
+    window.location.reload();
   };
 
   const handleSubmit = (e) => {
@@ -77,10 +80,16 @@ const Authentication = () => {
   return (
     <main className="login-background">
       <div className="formDiv">
-        <form onSubmit={(e) => handleSubmit(e)}>
+        <form onSubmit={(e) => { handleSubmit(e); }}>
           <h1 className="form-ribbon">
             {authenticate === 'login' ? 'Log In' : 'Register'}
           </h1>
+          {loginError && (
+          <div className="error-msg-div">
+            <p className="error-message">{loginError}</p>
+            <button type="button" className="clear-btn" onClick={() => refreshPage()}>Clear form</button>
+          </div>
+          )}
           {authenticate === 'register' && (
             <div>
               <input
@@ -120,7 +129,7 @@ const Authentication = () => {
             <div className="field">
               <input
                 type="password"
-                placeholder="Cnfirm password"
+                placeholder="Confirm password"
                 id="confirmPassword"
                 name="confirmPassword"
                 value={confirmPassword}
@@ -155,11 +164,7 @@ const Authentication = () => {
               </button>
             </div>
           )}
-          {loginError && (
-          <div>
-            <p className="error-message">{loginError}</p>
-          </div>
-          )}
+
         </form>
       </div>
     </main>
