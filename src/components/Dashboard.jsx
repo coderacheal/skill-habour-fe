@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import logo from '../assets/skill-habour-logo.png';
 import Socials from './Socials';
 import { logOutUser } from '../features/authenticationSlice';
 
 const Dashboard = () => {
   const navigate = useNavigate();
+  const user = useSelector((store) => store.auth.user);
   const { pathname } = useLocation();
   const dispath = useDispatch();
 
@@ -20,6 +21,15 @@ const Dashboard = () => {
       <img src={logo} alt="Skill Share Logo" className="skill-share-logo" />
       <div className="dashboardNavigations">
         <h2>Dashboard</h2>
+        {
+          user ? (
+            <h5>
+              Hi,
+              {user.username}
+            </h5>
+          ) : <p>You are not logged in</p>
+        }
+
         <p />
         <ul className="navigation">
           <Link to="/courses" className={` links ${(pathname === '/courses') ? 'active' : ''}`}>Courses</Link>

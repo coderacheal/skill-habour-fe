@@ -25,19 +25,6 @@ const Authentication = () => {
 
   const authenticate = useSelector((state) => state.auth.authenticate);
 
-  const handleRegister = () => {
-    dispatch(
-      registerUser({
-        user: {
-          username,
-          email,
-          password,
-        },
-      }),
-    );
-    navigate('/courses');
-  };
-
   const handleLogIn = () => {
     dispatch(
       logInUser({
@@ -49,9 +36,28 @@ const Authentication = () => {
     )
       .unwrap()
       .catch((error) => {
-        // Error handling if needed (e.g., show a modal or toast)
         console.error('Login failed:', error);
       });
+  };
+
+  const handleRegister = () => {
+    dispatch(
+      registerUser({
+        user: {
+          username,
+          email,
+          password,
+        },
+      }),
+    )
+
+      .unwrap()
+      .catch((error) => {
+        console.error('Login failed:', error);
+      });
+
+    handleLogIn();
+    navigate('/courses');
   };
 
   const handleChange = (e) => {
