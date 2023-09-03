@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchCourses } from '../features/courseSlice';
 
 const ReservationForm = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchCourses());
+  }, [dispatch]);
+  const { courses } = useSelector((state) => state.courses);
   const [formData, setFormData] = useState({
-    course_name: '',
+    course_name: '', // Use this to store the selected course name
     reservation_date: '',
     price: '',
     course_id: '1',
@@ -47,21 +54,27 @@ const ReservationForm = () => {
       <h2>Reservation Form</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="name">course Name:</label>
-          <input
-            type="text"
-            id="name"
+          <label htmlFor="course_name">Course Name:</label>
+          <select
+            id="course_name"
             name="course_name"
             value={formData.course_name}
             onChange={handleChange}
             required
-          />
+          >
+            <option value="" disabled>Select a Course</option>
+            {courses.map((course) => (
+              <option key={course.id} value={course.name}>
+                {course.name}
+              </option>
+            ))}
+          </select>
         </div>
         <div>
-          <label htmlFor="course">Reservation Date:</label>
+          <label htmlFor="reservation_date">Reservation Date:</label>
           <input
             type="date"
-            id="course"
+            id="reservation_date"
             name="reservation_date"
             value={formData.reservation_date}
             onChange={handleChange}
@@ -79,17 +92,6 @@ const ReservationForm = () => {
             required
           />
         </div>
-        {/* <div>
-          <label htmlFor="reservationDate">Reservation Date:</label>
-          <input
-            type="date"
-            id="reservationDate"
-            name="reservationDate"
-            value={formData.reservationDate}
-            onChange={handleChange}
-            required
-          />
-        </div> */}
         <div>
           <button type="submit">Submit Reservation</button>
         </div>
