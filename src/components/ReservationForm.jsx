@@ -12,27 +12,26 @@ const ReservationForm = () => {
   const { courses } = useSelector((state) => state.courses);
 
   const [selectedCourse, setSelectedCourse] = useState(null);
-
   const [formData, setFormData] = useState({
-    course_name: '', // Use this to store the selected course name
+    course_name: '',
     reservation_date: '',
     price: '',
     user_id: '1',
   });
 
+  const [reservationStatus, setReservationStatus] = useState('');
+
   useEffect(() => {
     if (courses.length > 0 && !selectedCourse) {
-      setSelectedCourse(courses[0]); // Select the first course when courses are available
+      setSelectedCourse(courses[0]);
     }
   }, [courses, selectedCourse]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    // Find the selected course object
     const course = courses.find((course) => course.name === value);
 
-    setSelectedCourse(course); // Update the selected course
+    setSelectedCourse(course);
 
     setFormData({
       ...formData,
@@ -43,13 +42,12 @@ const ReservationForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if a course is selected
     if (!selectedCourse) {
-      // console.error('Please select a course');
+      setReservationStatus('Please select a course');
       return;
     }
 
-    formData.course_id = selectedCourse.id; // Assign the selected course's ID
+    formData.course_id = selectedCourse.id;
 
     try {
       const response = await fetch(`http://127.0.0.1:3001/api/v1/courses/${formData.course_id}/reservations`, {
@@ -61,21 +59,30 @@ const ReservationForm = () => {
       });
 
       if (response.ok) {
-        // Reservation was successfully created
-        // console.log('Reservation created successfully');
-        // You can reset the form or redirect the user as needed
+        setReservationStatus('Course successfully enrolled');
+        // Reset the form
+        setFormData({
+          course_name: '',
+          reservation_date: '',
+          price: '',
+          user_id: '1',
+        });
       } else {
-        // Handle errors here
-        // console.error('Failed to create reservation');
+        setReservationStatus('Failed to create reservation');
       }
     } catch (error) {
-      // console.error('Error:', error);
+      setReservationStatus('Error: ' + error.message);
     }
   };
 
   return (
     <div className="reservation-container">
       <h2>Reservation Form</h2>
+      {reservationStatus && (
+        <p className={reservationStatus.includes('Error') ? 'error-message' : 'success-message'}>
+          {reservationStatus}
+        </p>
+      )}
       <form className="reservation-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <p className="course_name">Select a Course:</p>
