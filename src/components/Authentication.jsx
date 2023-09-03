@@ -6,9 +6,10 @@ import {
 } from '../features/authenticationSlice';
 
 const Authentication = () => {
-  const navigate = useNavigate();
-  const isLoggedIn = useSelector((state) => state.auth.token !== null);
+  const loginError = useSelector((store) => store.auth.loginError);
+  const isLoggedIn = useSelector((store) => store.auth.token !== null);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -45,8 +46,22 @@ const Authentication = () => {
           password,
         },
       }),
-    );
+    )
+      .unwrap()
+      .catch((error) => {
+        // Error handling if needed (e.g., show a modal or toast)
+        console.error('Login failed:', error);
+      });
   };
+
+  // const handleLogin = (userInput) => {
+  //   dispatch(logInUser(userInput))
+  //     .unwrap()
+  //     .catch((error) => {
+  //       // Error handling if needed (e.g., show a modal or toast)
+  //       console.error('Login failed:', error);
+  //     });
+  // };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -142,6 +157,11 @@ const Authentication = () => {
                 Log In
               </button>
             </div>
+          )}
+          {loginError && (
+          <div>
+            <p className="error-message">{loginError}</p>
+          </div>
           )}
         </form>
       </div>
