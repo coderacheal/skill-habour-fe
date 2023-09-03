@@ -7,17 +7,26 @@ const ReservationForm = () => {
   useEffect(() => {
     dispatch(fetchCourses());
   }, [dispatch]);
+
   const { courses } = useSelector((state) => state.courses);
+
+  const [selectedCourse, setSelectedCourse] = useState(null);
+
   const [formData, setFormData] = useState({
     course_name: '', // Use this to store the selected course name
     reservation_date: '',
     price: '',
-    course_id: '1',
     user_id: '1',
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    // Find the selected course object
+    const course = courses.find((course) => course.name === value);
+
+    setSelectedCourse(course); // Update the selected course
+
     setFormData({
       ...formData,
       [name]: value,
@@ -27,8 +36,16 @@ const ReservationForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Check if a course is selected
+    if (!selectedCourse) {
+      console.error('Please select a course');
+      return;
+    }
+
+    formData.course_id = selectedCourse.id; // Assign the selected course's ID
+
     try {
-      const response = await fetch('http://127.0.0.1:3001/api/v1/courses/1/reservations', {
+      const response = await fetch(`http://127.0.0.1:3001/api/v1/courses/${formData.course_id}/reservations`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
