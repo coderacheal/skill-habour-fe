@@ -104,9 +104,7 @@ const authSlice = createSlice({
             confirmPassword: '',
           },
         };
-      });
-
-    builder
+      })
       .addCase(logInUser.fulfilled, (state, { payload }) => {
         setLocalStorage('token', payload.sessionToken);
         setLocalStorage('user', payload.status.data);
@@ -120,9 +118,7 @@ const authSlice = createSlice({
             password: '',
           },
         };
-      });
-
-    builder
+      })
       .addCase(logOutUser.fulfilled, (state) => {
         removeLocalStorage('token');
         removeLocalStorage('user');
