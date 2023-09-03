@@ -26,6 +26,7 @@ const CourseDetails = () => {
               {' '}
               {course.name}
             </p>
+            <Link to="/reservation">Reserve</Link>
             {/* {condition to navigate to authentication or login} */}
             <Link to="/auth">Reserve</Link>
           </div>
