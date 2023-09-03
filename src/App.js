@@ -5,7 +5,7 @@ import MyReservations from './components/MyReservations';
 import DeleteReservations from './components/DeleteReservations';
 import HomePage from './components/HomePage';
 import CourseDetails from './components/CourseDetails';
-import ReservationForm from './components/TestRideForm';
+import ReservationForm from './components/ReservationForm';
 import Authentication from './components/Authentication';
 import AddCourse from './components/AddCourse';
 

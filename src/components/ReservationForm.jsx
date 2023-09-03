@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCourses } from '../features/courseSlice';
+import '../styles/ReservationForm.css';
 
 const ReservationForm = () => {
   const dispatch = useDispatch();
@@ -73,11 +74,11 @@ const ReservationForm = () => {
   };
 
   return (
-    <div>
+    <div className="reservation-container">
       <h2>Reservation Form</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="course_name">Course Name:</label>
+      <form className="reservation-form" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="course_name">Select a Course:</label>
           <select
             id="course_name"
             name="course_name"
@@ -93,8 +94,8 @@ const ReservationForm = () => {
             ))}
           </select>
         </div>
-        <div>
-          <label htmlFor="reservation_date">Reservation Date:</label>
+        <div className="form-group">
+          <label htmlFor="reservation_date">Select Reservation Date:</label>
           <input
             type="date"
             id="reservation_date"
@@ -104,7 +105,7 @@ const ReservationForm = () => {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="price">Price:</label>
           <input
             type="number"
@@ -115,7 +116,7 @@ const ReservationForm = () => {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
           <button type="submit">Submit Reservation</button>
         </div>
       </form>
