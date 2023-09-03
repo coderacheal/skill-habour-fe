@@ -71,7 +71,7 @@ const ReservationForm = () => {
         setReservationStatus('Failed to create reservation');
       }
     } catch (error) {
-      setReservationStatus('Error: ' + error.message);
+      setReservationStatus(`Error: ${error.message}`);
     }
   };
 
