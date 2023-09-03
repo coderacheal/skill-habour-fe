@@ -45,7 +45,7 @@ const ReservationForm = () => {
 
     // Check if a course is selected
     if (!selectedCourse) {
-      console.error('Please select a course');
+      // console.error('Please select a course');
       return;
     }
 
@@ -62,14 +62,14 @@ const ReservationForm = () => {
 
       if (response.ok) {
         // Reservation was successfully created
-        console.log('Reservation created successfully');
+        // console.log('Reservation created successfully');
         // You can reset the form or redirect the user as needed
       } else {
         // Handle errors here
-        console.error('Failed to create reservation');
+        // console.error('Failed to create reservation');
       }
     } catch (error) {
-      console.error('Error:', error);
+      // console.error('Error:', error);
     }
   };
 
@@ -78,7 +78,7 @@ const ReservationForm = () => {
       <h2>Reservation Form</h2>
       <form className="reservation-form" onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="course_name">Select a Course:</label>
+          <p className="course_name">Select a Course:</p>
           <select
             id="course_name"
             name="course_name"
@@ -95,7 +95,7 @@ const ReservationForm = () => {
           </select>
         </div>
         <div className="form-group">
-          <label htmlFor="reservation_date">Select Reservation Date:</label>
+          <p className="reservation_date">Select Reservation Date:</p>
           <input
             type="date"
             id="reservation_date"
@@ -106,7 +106,7 @@ const ReservationForm = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="price">Price:</label>
+          <p className="price">Price:</p>
           <input
             type="number"
             id="price"
