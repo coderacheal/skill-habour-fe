@@ -19,6 +19,12 @@ const ReservationForm = () => {
     user_id: '1',
   });
 
+  useEffect(() => {
+    if (courses.length > 0 && !selectedCourse) {
+      setSelectedCourse(courses[0]); // Select the first course when courses are available
+    }
+  }, [courses, selectedCourse]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
