@@ -19,7 +19,6 @@ const App = () => {
         <Route path="/courses/:courseName" element={<CourseDetails />} />
         {loggedInUser && <Route path="/reservations" element={<Reservations />} />}
         {loggedInUser && <Route path="/my_reservations" element={<MyReservations />} />}
-        {/* <Route path="/my_reservations" element={<MyReservations />} /> */}
         <Route path="/add_course" element={<AddCourse />} />
         <Route path="/delete_reservation" element={<DeleteReservations />} />
         <Route path="/reservation" element={<ReservationForm />} />
