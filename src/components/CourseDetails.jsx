@@ -12,7 +12,7 @@ const CourseDetails = () => {
   useEffect(() => {
     dispatch(fetchCourses());
     dispatch(getCourseDetails(courseName));
-  }, [dispatch, courseName]);
+  }, [dispatch, courseName, courses]);
 
   const selectedCourse = courses.find((course) => course.name === courseName);
 
@@ -26,26 +26,25 @@ const CourseDetails = () => {
       <div className="oneCourse" key={selectedCourse.name}>
         <div className="courseDetails">
           <img src={selectedCourse.image} alt="course" className="image" />
-          <p>
-            Name :
-            {' '}
-            {selectedCourse.name}
-          </p>
-          {isLoggedIn ? (
-            <>
-              <p>Click Reserve button to make a reservation</p>
-              <Link to="/reservations">
-                <button type="button" className="btn btn-primary">Reserve</button>
-              </Link>
-            </>
-          ) : (
-            <>
-              <p>Please Register before making any reservation</p>
+          <div>
+            <p>
+              Name :
+              {' '}
+              {selectedCourse.name}
+            </p>
+            {isLoggedIn ? (
+              <>
+                <p>Click Reserve button to make a reservation</p>
+                <Link to="/reservations">
+                  <button type="button" className="btn btn-primary">Reserve course</button>
+                </Link>
+              </>
+            ) : (
               <Link to="/auth">
-                <button type="button" className="btn btn-primary">Register</button>
+                <button type="button" className="btn btn-primary">Sign in to reserve</button>
               </Link>
-            </>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </div>

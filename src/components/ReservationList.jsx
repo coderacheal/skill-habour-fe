@@ -8,7 +8,6 @@ function ReservationList() {
   const [loading, setLoading] = useState(true);
   const user = useSelector((store) => store.auth.user);
 
-
   useEffect(() => {
     // Get the user ID from local storage
     const loggedInUser = JSON.parse(localStorage.getItem('user'));
@@ -68,6 +67,7 @@ function ReservationList() {
 
   return (
     <div className="reservation-list">
+      <SignOutButton />
       {user ? (
         <div>
           <h2 className="title">My Reservations</h2>
@@ -76,10 +76,10 @@ function ReservationList() {
           </div>
         </div>
       ) : (
-      <div>
-        <h3>User is currently not signed in</h3>
-        <SignOutButton />
-      </div>
+        <div className="no-user-my-reservations">
+          <p>No user is signed in yet 🔑</p>
+          <SignOutButton />
+        </div>
       )}
     </div>
   );

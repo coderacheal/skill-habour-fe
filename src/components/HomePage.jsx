@@ -8,6 +8,7 @@ import { CustomNextArrow, CustomPrevArrow } from './CarouselArrows';
 import { fetchCourses } from '../features/courseSlice';
 import Dashboard from './Dashboard';
 import { logOutUser } from '../features/authenticationSlice';
+import SignOutButton from './SignOutButton';
 
 const HomePage = () => {
   const { courses } = useSelector((store) => store.courses);
@@ -43,12 +44,10 @@ const HomePage = () => {
     <div className="wrapper">
       <Dashboard />
       <div className="availableClasses">
+      <SignOutButton /> 
         <div className="ribbon-and-authentication">
           <h1 className="ribbon">AVAILABLE COURSES</h1>
-          {user ? (
-            <button type="button" className="sign-out-btn" onClick={handlelogout}>Sign out</button>) : (
-              <button type="button" className="sign-out-btn" onClick={handlelogIn}>Sign in</button>
-          )}
+           
         </div>
         <p className="fade">Select a course you would like to take</p>
         <p className="fade">{'.'.repeat(50)}</p>

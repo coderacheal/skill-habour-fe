@@ -138,7 +138,7 @@ const AuthenticationForm = () => {
             />
             <p>Refresh page after sign-up</p>
           </div>
-          
+
           )}
           <button type="submit" className="submit-btn">
             {authenticate === 'login' ? 'Log In' : 'Register'}
