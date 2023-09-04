@@ -9,17 +9,17 @@ import ReservationForm from './components/ReservationForm';
 import Authentication from './components/Authentication';
 import AddCourse from './components/AddCourse';
 
-const App = () => {
-  const loggedInUser = localStorage.getItem('user');
+const App = () =>
+// const loggedInUser = localStorage.getItem('user');
 
-  return (
+  (
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/courses" element={<HomePage />} />
         <Route path="/courses/:courseName" element={<CourseDetails />} />
-        {loggedInUser && <Route path="/reservations" element={<Reservations />} />}
-        {loggedInUser && <Route path="/my_reservations" element={<MyReservations />} />}
+        <Route path="/reservations" element={<Reservations />} />
+        <Route path="/my_reservations" element={<MyReservations />} />
         <Route path="/add_course" element={<AddCourse />} />
         <Route path="/delete_reservation" element={<DeleteReservations />} />
         <Route path="/reservation" element={<ReservationForm />} />
@@ -27,6 +27,4 @@ const App = () => {
       </Routes>
     </Router>
   );
-};
-
 export default App;
