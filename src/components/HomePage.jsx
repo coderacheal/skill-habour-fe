@@ -55,7 +55,7 @@ const HomePage = () => {
 
         <div className="sliderDiv">
           {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-          <Slider {...settings} className="slider">
+          <Slider {...settings} className="slider custom-slider">
             {courses.map((course) => (
               <div key={course.id}>
                 <Link to={`/courses/${course.name}`} className="imageNameLink">
