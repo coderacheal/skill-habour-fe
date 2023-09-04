@@ -10,7 +10,6 @@
   opacity: 0;
   cursor: pointer;
   font-size: 2rem;
-
 }
 
 .skill-share-logo {
@@ -45,10 +44,11 @@
   background-color: rgb(36, 175, 36);
   color: white;
 }
+
 @media screen and (max-width: 768px) {
   /* .dashboard {
     background-color: aliceblue;
-  }*/
+  } */
 
   .dashboard .nav-btn {
     visibility: visible;
@@ -86,43 +86,4 @@
     top: 2rem;
     right: 2rem;
   }
-  
-  
-  /*
-  .skill-share-logo {
-    height: 130px;
-    display: flex;
-    flex-direction: row;
-    margin: auto;
-    margin-top: 30px;
-  }
-  
-  .dashboardNavigations {
-    text-align: center;
-  }
-  
-  .navigation {
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    text-align: left;
-    gap: 0px;
-  }
-  
-  .links {
-    background: #000;
-    font-size: 13px;
-    text-decoration: none;
-    color: black;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-family: 'Montserrat', sans-serif;
-  }
-  
-  .active {
-    background-color: rgb(36, 175, 36);
-    color: white;
-  } */
 }
-/* 
- */
