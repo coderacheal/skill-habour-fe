@@ -6,7 +6,7 @@ import Socials from './Socials';
 
 const Dashboard = () => {
   const user = useSelector((store) => store.auth.user);
-  const loggedInUser = localStorage.getItem('user');
+  // const loggedInUser = localStorage.getItem('user');
   const { pathname } = useLocation();
 
   return (
@@ -26,8 +26,8 @@ const Dashboard = () => {
         <p />
         <ul className="navigation">
           <Link to="/courses" className={` links ${(pathname === '/courses') ? 'active' : ''}`}>Courses</Link>
-          {loggedInUser && <Link to="/reservations" className={`links ${(pathname === '/reservations') ? 'active' : ''}`}>Reserve Course</Link>}
-          {loggedInUser && <Link to="/my_reservations" className={`links ${(pathname === '/my_reservations') ? 'active' : ''}`}>My Reservations</Link>}
+          <Link to="/reservations" className={`links ${(pathname === '/reservations') ? 'active' : ''}`}>Reserve Course</Link>
+          <Link to="/my_reservations" className={`links ${(pathname === '/my_reservations') ? 'active' : ''}`}>My Reservations</Link>
           {/* <Link to="/add_course" className={` links ${(pathname === '/add_course')
           ? 'active' : ''}`}>Add Course</Link> */}
           <Link to="/delete_reservation" className={`links ${(pathname === '/delete_reservation') ? 'active' : ''}`}>Delete Reservation</Link>
