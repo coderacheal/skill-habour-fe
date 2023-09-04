@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCourseDetails, fetchCourses } from '../features/courseSlice';
+import '../styles/CourseDetails.css';
 
 const CourseDetails = () => {
   const { courses } = useSelector((store) => store.courses);
@@ -20,13 +21,14 @@ const CourseDetails = () => {
   const isLoggedIn = user !== null;
 
   return (
-    <div>
+    <div className="course-details-container">
       <div className="oneCourse" key={selectedCourse.name}>
         <div className="courseDetails">
           <img src={selectedCourse.image} alt="course" className="image" />
-          <p>
-            Name :
+          <p className="course">
+            Course name:
             {' '}
+            <br />
             {selectedCourse.name}
           </p>
           {isLoggedIn ? (
