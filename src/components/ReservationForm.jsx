@@ -4,6 +4,10 @@ import { fetchCourses } from '../features/courseSlice';
 import '../styles/ReservationForm.css';
 
 const ReservationForm = () => {
+  // Get the user data from local storage
+  const loggedInUser = JSON.parse(localStorage.getItem('user'));
+  const userId = loggedInUser ? loggedInUser.id : ''; // Get the user ID
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCourses());
@@ -16,7 +20,7 @@ const ReservationForm = () => {
     course_name: '',
     reservation_date: '',
     price: '',
-    user_id: '1',
+    user_id: userId, // Set the user ID from local storage
   });
 
   const [reservationStatus, setReservationStatus] = useState('');
@@ -65,7 +69,7 @@ const ReservationForm = () => {
           course_name: '',
           reservation_date: '',
           price: '',
-          user_id: '1',
+          user_id: userId, // Set the user ID from local storage
         });
       } else {
         setReservationStatus('Failed to create reservation');

@@ -11,27 +11,41 @@ const CourseDetails = () => {
   useEffect(() => {
     dispatch(fetchCourses());
     dispatch(getCourseDetails(courseName));
-  }, [dispatch, courses, courseName]);
+  }, [dispatch, courseName]);
 
-  const selectedCourse = courses.filter((course) => course.name === courseName);
+  const selectedCourse = courses.find((course) => course.name === courseName);
+
+  // Check if the user is logged in by examining the data in local storage
+  const user = JSON.parse(localStorage.getItem('user'));
+  const isLoggedIn = user !== null;
 
   return (
     <div>
-      {selectedCourse.map((course) => (
-        <div className="oneCourse" key={course.name}>
-          <div className="courseDetails">
-            <img key={course.name} src={course.image} alt="course" className="image" />
-            <p key={course.name}>
-              Name :
-              {' '}
-              {course.name}
-            </p>
-            <Link to="/reservation">Reserve</Link>
-            {/* {condition to navigate to authentication or login} */}
-            <Link to="/auth">Reserve</Link>
-          </div>
+      <div className="oneCourse" key={selectedCourse.name}>
+        <div className="courseDetails">
+          <img src={selectedCourse.image} alt="course" className="image" />
+          <p>
+            Name :
+            {' '}
+            {selectedCourse.name}
+          </p>
+          {isLoggedIn ? (
+            <>
+              <p>Click Reserve button to make a reservation</p>
+              <Link to="/reservation">
+                <button type="button" className="btn btn-primary">Reserve</button>
+              </Link>
+            </>
+          ) : (
+            <>
+              <p>Please Register before making any reservation</p>
+              <Link to="/auth">
+                <button type="button" className="btn btn-primary">Register</button>
+              </Link>
+            </>
+          )}
         </div>
-      ))}
+      </div>
     </div>
   );
 };
