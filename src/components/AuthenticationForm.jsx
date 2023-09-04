@@ -136,7 +136,7 @@ const AuthenticationForm = () => {
               onChange={(e) => handleChange(e)}
               required
             />
-            <p>Refresh page after sign-up</p>
+            <p style={{'opacity': '0.8'}}>Refresh page after sign-up to login</p>
           </div>
 
           )}

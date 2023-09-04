@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCourseDetails, fetchCourses } from '../features/courseSlice';
 import Dashboard from './Dashboard';
+import SignOutButton from './SignOutButton';
 
 const CourseDetails = () => {
   const { courses } = useSelector((store) => store.courses);
@@ -24,24 +25,24 @@ const CourseDetails = () => {
     <div className="wrapper">
       <Dashboard />
       <div className="oneCourse" key={selectedCourse.name}>
+        <SignOutButton />
         <div className="courseDetails">
-          <img src={selectedCourse.image} alt="course" className="image" />
-          <div>
+          <img src={selectedCourse.image} alt="course" className="course-image" />
+          <div className="full-course-description">
+            <h3>{selectedCourse.name}</h3>
+            <p>{selectedCourse.description}</p>
             <p>
-              Name :
-              {' '}
-              {selectedCourse.name}
+              Price $
+              {selectedCourse.price}
+              .00
             </p>
             {isLoggedIn ? (
-              <>
-                <p>Click Reserve button to make a reservation</p>
-                <Link to="/reservations">
-                  <button type="button" className="btn btn-primary">Reserve course</button>
-                </Link>
-              </>
+              <Link to="/reservations">
+                <button type="button" className="enroll-btn">Enroll in course</button>
+              </Link>
             ) : (
               <Link to="/auth">
-                <button type="button" className="btn btn-primary">Sign in to reserve</button>
+                <button type="button" className="enroll-btn">Sign in to enroll</button>
               </Link>
             )}
           </div>

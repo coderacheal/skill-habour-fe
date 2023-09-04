@@ -77,7 +77,7 @@ function ReservationList() {
         </div>
       ) : (
         <div className="no-user-my-reservations">
-          <p>No user is signed in yet 🔑</p>
+          <p>No user is signed in yet</p>
           <SignOutButton />
         </div>
       )}
