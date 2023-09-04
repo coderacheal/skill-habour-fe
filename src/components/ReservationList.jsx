@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../styles/MyReservations.css';
 
 function ReservationList() {
   const [reservations, setReservations] = useState([]);
@@ -10,33 +11,44 @@ function ReservationList() {
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
-        setReservations(data);
+        console.log('Data fetched successfully:', data);
+
+        // Modify the reservation date to display only the date part
+        const modifiedData = data.map((reservation) => ({
+          ...reservation,
+          reservation_date: reservation.reservation_date.split('T')[0], // Extract date part
+        }));
+
+        setReservations(modifiedData);
       })
       .catch((error) => {
         console.error('Error fetching reservations:', error);
       });
   }, []);
+
   return (
-    <div>
-      <h2>Reservations for User ID 1</h2>
-      <ul>
-        {reservations.map((reservation) => (
-          <li key={reservation.id}>
-            <strong>Course Name:</strong>
-            {' '}
-            {reservation.course_name}
-            <br />
-            <strong>Reservation Date:</strong>
-            {' '}
-            {reservation.reservation_date}
-            <br />
-            <strong>Price:</strong>
-            {' '}
-            {reservation.price}
-            <br />
-          </li>
-        ))}
-      </ul>
+    <div className="reservation-list">
+      <h2 className="title">My Reservations</h2>
+      <div className="reservations-list-items">
+        <ul className="reservation-items">
+          {reservations.map((reservation) => (
+            <li key={reservation.id} className="reservation-item">
+              <strong className="label">Course Name:</strong>
+              {' '}
+              <span className="value">{reservation.course_name}</span>
+              <br />
+              <strong className="label">Reservation Date:</strong>
+              {' '}
+              <span className="value">{reservation.reservation_date}</span>
+              <br />
+              <strong className="label">Price:</strong>
+              {' '}
+              <span className="value">{reservation.price}</span>
+              <br />
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
