@@ -53,3 +53,13 @@ ul {
   text-align: center;
   font-weight: bold;
 }
+
+@media (max-width: 768px) {
+  .reservation-items {
+    width: 90%; /* Take full width on smaller screens */
+  }
+
+  .reservation-item {
+    height: auto;
+  }
+}
