@@ -34,10 +34,10 @@ const AuthenticationForm = () => {
         },
       }),
     )
-      .unwrap()
-      // .catch((error) => {
-      //   console.error('Login failed:', error);
-      // });
+      .unwrap();
+    // .catch((error) => {
+    //   console.error('Login failed:', error);
+    // });
   };
 
   const handleRegister = () => {
@@ -51,10 +51,10 @@ const AuthenticationForm = () => {
       }),
     )
 
-      .unwrap()
-      // .catch((error) => {
-      //   console.error('Login failed:', error);
-      // });
+      .unwrap();
+    // .catch((error) => {
+    //   console.error('Login failed:', error);
+    // });
 
     navigate('/courses');
   };
