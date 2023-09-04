@@ -75,4 +75,45 @@
   padding: 0;
   font-size: 15px;
   margin: 0;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    grid-template-columns: 100%;
+  }
+
+  .ribbon-and-authentication {
+    grid-template-columns: 74% 26%;
+  }
+  
+  .availableClasses {
+    margin-top: 30px;
+  }
+  
+  .classThumbnail {
+    width: 100%;
+  }
+  
+  .classDescription {
+    width: 80%;
+  }
+
+  .custom-slider {
+    position: flex;
+  }
+
+  .sign-out-btn {
+    background-color: transparent;
+    font-weight: bold;
+    color: grey;
+    border: 1px solid blue;
+    border-radius: 30px;
+    width: 80px;
+    padding: 0;
+    font-size: 15px;
+    margin: 0;
+    cursor: pointer;
+  }
+  
 }
