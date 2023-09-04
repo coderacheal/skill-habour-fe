@@ -116,3 +116,7 @@
     cursor: pointer;
   }
 }
+
+.signout-div {
+  position: absolute;
+}

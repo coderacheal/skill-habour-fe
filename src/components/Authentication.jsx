@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import {
   handleUpdate, logInUser, registerUser, toggleAuthentication,
 } from '../features/authenticationSlice';
+import Dashboard from './Dashboard';
 
 const Authentication = () => {
   const loginError = useSelector((store) => store.auth.loginError);
@@ -78,96 +79,99 @@ const Authentication = () => {
   };
 
   return (
-    <main className="login-background">
-      <div className="formDiv">
-        <form onSubmit={(e) => { handleSubmit(e); }}>
-          <h1 className="form-ribbon">
-            {authenticate === 'login' ? 'Log In' : 'Register'}
-          </h1>
-          {loginError && (
-          <div className="error-msg-div">
-            <p className="error-message">{loginError}</p>
-            <button type="button" className="clear-btn" onClick={() => refreshPage()}>Clear form</button>
-          </div>
-          )}
-          {authenticate === 'register' && (
+    <div className="wrapper">
+      <Dashboard />
+      <div className="login-background">
+        <div className="formDiv">
+          <form onSubmit={(e) => { handleSubmit(e); }}>
+            <h1 className="form-ribbon">
+              {authenticate === 'login' ? 'Log In' : 'Register'}
+            </h1>
+            {loginError && (
+            <div className="error-msg-div">
+              <p className="error-message">{loginError}</p>
+              <button type="button" className="clear-btn" onClick={() => refreshPage()}>Clear form</button>
+            </div>
+            )}
+            {authenticate === 'register' && (
+              <div>
+                <input
+                  type="text"
+                  placeholder="Username"
+                  id="username"
+                  name="username"
+                  value={username}
+                  onChange={(e) => handleChange(e)}
+                  required
+                />
+              </div>
+            )}
             <div>
               <input
-                type="text"
-                placeholder="Username"
-                id="username"
-                name="username"
-                value={username}
+                type="email"
+                placeholder="Email"
+                id="email"
+                name="email"
+                value={email}
                 onChange={(e) => handleChange(e)}
                 required
               />
             </div>
-          )}
-          <div>
-            <input
-              type="email"
-              placeholder="Email"
-              id="email"
-              name="email"
-              value={email}
-              onChange={(e) => handleChange(e)}
-              required
-            />
-          </div>
-          <div>
-            <input
-              type="password"
-              placeholder="Enter password"
-              id="password"
-              name="password"
-              value={password}
-              onChange={(e) => handleChange(e)}
-              required
-            />
-          </div>
-          {authenticate === 'register' && (
-            <div className="field">
+            <div>
               <input
                 type="password"
-                placeholder="Confirm password"
-                id="confirmPassword"
-                name="confirmPassword"
-                value={confirmPassword}
+                placeholder="Enter password"
+                id="password"
+                name="password"
+                value={password}
                 onChange={(e) => handleChange(e)}
                 required
               />
             </div>
-          )}
-          <button type="submit" className="submit-btn">
-            {authenticate === 'login' ? 'Log In' : 'Register'}
-          </button>
-          {authenticate === 'login' ? (
-            <div className="toggleAuthentication">
-              <p>Don&apos;t have an account?</p>
-              <button
-                type="button"
-                onClick={() => dispatch(toggleAuthentication())}
-                className="switch-authentication"
-              >
-                Register
-              </button>
-            </div>
-          ) : (
-            <div className="toggleAuthentication">
-              <p>Already have an account?</p>
-              <button
-                type="button"
-                onClick={() => dispatch(toggleAuthentication())}
-                className="switch-authentication"
-              >
-                Log In
-              </button>
-            </div>
-          )}
+            {authenticate === 'register' && (
+              <div className="field">
+                <input
+                  type="password"
+                  placeholder="Confirm password"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  value={confirmPassword}
+                  onChange={(e) => handleChange(e)}
+                  required
+                />
+              </div>
+            )}
+            <button type="submit" className="submit-btn">
+              {authenticate === 'login' ? 'Log In' : 'Register'}
+            </button>
+            {authenticate === 'login' ? (
+              <div className="toggleAuthentication">
+                <p>Don&apos;t have an account?</p>
+                <button
+                  type="button"
+                  onClick={() => dispatch(toggleAuthentication())}
+                  className="switch-authentication"
+                >
+                  Register
+                </button>
+              </div>
+            ) : (
+              <div className="toggleAuthentication">
+                <p>Already have an account?</p>
+                <button
+                  type="button"
+                  onClick={() => dispatch(toggleAuthentication())}
+                  className="switch-authentication"
+                >
+                  Log In
+                </button>
+              </div>
+            )}
 
-        </form>
+          </form>
+        </div>
       </div>
-    </main>
+    </div>
   );
 };
 

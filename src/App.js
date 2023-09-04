@@ -11,6 +11,7 @@ import AddCourse from './components/AddCourse';
 
 const App = () => {
   const loggedInUser = localStorage.getItem('user');
+
   return (
     <Router>
       <Routes>
