@@ -107,9 +107,7 @@ const authSlice = createSlice({
             confirmPassword: '',
           },
         };
-      });
-
-    builder
+      })
       .addCase(logInUser.fulfilled, (state, { payload }) => {
         setLocalStorage('token', payload.sessionToken);
         setLocalStorage('user', payload.status.data);
@@ -124,12 +122,12 @@ const authSlice = createSlice({
           },
         };
       })
+
       .addCase(logInUser.rejected, (state, action) => {
         // eslint-disable-next-line no-param-reassign
         state.loginError = action.payload; // This should contain the error message
       });
-
-    builder
+    
       .addCase(logOutUser.fulfilled, (state) => {
         removeLocalStorage('token');
         removeLocalStorage('user');
