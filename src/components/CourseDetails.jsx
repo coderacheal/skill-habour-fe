@@ -30,11 +30,19 @@ const CourseDetails = () => {
             {selectedCourse.name}
           </p>
           {isLoggedIn ? (
-            // User is logged in, display "Reserve" link
-            <Link to="/reservation">Reserve</Link>
+            <>
+              <p>Click Reserve button to make a reservation</p>
+              <Link to="/reservation">
+                <button type="button" className="btn btn-primary">Reserve</button>
+              </Link>
+            </>
           ) : (
-            // User is not logged in, display "Register" link
-            <Link to="/auth">Register</Link>
+            <>
+              <p>Please Register before making any reservation</p>
+              <Link to="/auth">
+                <button type="button" className="btn btn-primary">Register</button>
+              </Link>
+            </>
           )}
         </div>
       </div>
