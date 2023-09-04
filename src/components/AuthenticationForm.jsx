@@ -35,9 +35,9 @@ const AuthenticationForm = () => {
       }),
     )
       .unwrap()
-      .catch((error) => {
-        console.error('Login failed:', error);
-      });
+      // .catch((error) => {
+      //   console.error('Login failed:', error);
+      // });
   };
 
   const handleRegister = () => {
@@ -52,9 +52,9 @@ const AuthenticationForm = () => {
     )
 
       .unwrap()
-      .catch((error) => {
-        console.error('Login failed:', error);
-      });
+      // .catch((error) => {
+      //   console.error('Login failed:', error);
+      // });
 
     navigate('/courses');
   };
@@ -136,7 +136,7 @@ const AuthenticationForm = () => {
               onChange={(e) => handleChange(e)}
               required
             />
-            <p style={{'opacity': '0.8'}}>Refresh page after sign-up to login</p>
+            <p style={{ opacity: '0.8' }}>Refresh page after sign-up to login</p>
           </div>
 
           )}

@@ -13,7 +13,7 @@ const CourseDetails = () => {
   useEffect(() => {
     dispatch(fetchCourses());
     dispatch(getCourseDetails(courseName));
-  }, [dispatch, courseName, courses]);
+  }, [dispatch, courseName]);
 
   const selectedCourse = courses.find((course) => course.name === courseName);
 
@@ -21,19 +21,23 @@ const CourseDetails = () => {
   const user = JSON.parse(localStorage.getItem('user'));
   const isLoggedIn = user !== null;
 
+  if (!selectedCourse) {
+    return <div>Course not found or loading...</div>;
+  }
+
   return (
     <div className="wrapper">
       <Dashboard />
       <div className="oneCourse" key={selectedCourse.name}>
         <SignOutButton />
         <div className="courseDetails">
-          <img src={selectedCourse.image} alt="course" className="course-image" />
+          <img src={selectedCourse?.image} alt="course" className="course-image" />
           <div className="full-course-description">
-            <h3>{selectedCourse.name}</h3>
-            <p>{selectedCourse.description}</p>
+            <h3>{selectedCourse?.name}</h3>
+            <p>{selectedCourse?.description}</p>
             <p>
               Price $
-              {selectedCourse.price}
+              {selectedCourse?.price}
               .00
             </p>
             {isLoggedIn ? (
