@@ -27,8 +27,6 @@ form {
 .toggleAuthentication {
   display: flex;
   flex-direction: row;
-
-  /* background-color: red; */
   width: 65%;
   margin: auto;
   margin-top: 30px;
@@ -47,6 +45,8 @@ input {
   color: blue;
   font-weight: bold;
   font-size: 17px;
+  position: relative;
+  bottom: 7px;
 }
 
 .submit-btn {
@@ -61,7 +61,24 @@ input {
   color: white;
 }
 
+.error-msg-div {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
 .error-message {
   color: red;
+  font-weight: bold;
+}
+
+.clear-btn {
+  color: blue;
+  background-color: transparent;
+  position: relative;
+  padding: 0;
+  border: 0;
+  bottom: 7px;
+  margin-left: 10px;
   font-weight: bold;
 }

@@ -27,10 +27,13 @@ export const registerUser = createAsyncThunk(
   async (userInput, thunkAPI) => {
     try {
       const response = await axios.post(`${baseUrl}/users`, userInput);
+      const sessionToken = response.headers.authorization;
+      response.data.sessionToken = sessionToken;
       return response.data;
     } catch (error) {
+      console.log(error);
       if (error.response.status === 500) {
-        return thunkAPI.rejectWithValue('username and email must be unique');
+        return thunkAPI.rejectWithValue(error.response.data || 'username and email must be unique');
       }
       return thunkAPI.rejectWithValue('something went wrong!');
     }
@@ -119,6 +122,12 @@ const authSlice = createSlice({
           },
         };
       })
+
+      .addCase(logInUser.rejected, (state, action) => {
+        // eslint-disable-next-line no-param-reassign
+        state.loginError = action.payload; // This should contain the error message
+      })
+
       .addCase(logOutUser.fulfilled, (state) => {
         removeLocalStorage('token');
         removeLocalStorage('user');
