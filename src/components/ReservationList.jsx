@@ -55,9 +55,13 @@ function ReservationList() {
             {' '}
             <span className="value">{reservation.reservation_date}</span>
             <br />
-            <strong className="label">Price:</strong>
+            <strong className="label">Course duration:</strong>
             {' '}
-            <span className="value">{reservation.price}</span>
+            <span className="value">
+              {reservation.price}
+              {' '}
+              months
+            </span>
             <br />
           </li>
         ))}
