@@ -28,7 +28,7 @@ form {
 .toggleAuthentication {
   display: flex;
   flex-direction: row;
-  width: 65%;
+  width: 95%;
   margin: auto;
   margin-top: 30px;
 }
@@ -82,4 +82,20 @@ input {
   bottom: 7px;
   margin-left: 10px;
   font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  form {
+    width: 95%;
+    padding: 30px;
+  }
+
+  .toggleAuthentication {
+    width: 65%;
+    margin-top: 30px;
+  }
+  
+  input {
+    width: 90%;
+  }
 }
