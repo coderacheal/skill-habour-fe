@@ -1,5 +1,6 @@
 .dashboard {
   background-color: aliceblue;
+  z-index: 10;
 }
 
 .dashboard .nav-btn {
