@@ -66,10 +66,15 @@
 }
 
 .sign-out-btn {
+  position: absolute;
   background-color: transparent;
   font-weight: bold;
   color: grey;
-  border: 1px solid blue;
+  top: 5vh;
+  right: 5vw;
+
+  /* border: 1px solid blue; */
+  border: 0;
   border-radius: 30px;
   width: 100px;
   padding: 0;
@@ -78,8 +83,9 @@
   cursor: pointer;
 }
 
-.signout-div {
-  position: absolute;
+.sign-out-btn:hover {
+  color: blue;
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 768px) {

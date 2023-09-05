@@ -26,7 +26,7 @@ const SignOutButton = () => {
     <div className="signout-div">
       {user ? (
         <button type="button" className="sign-out-btn" onClick={handlelogout}>Sign out</button>) : (
-          <button type="button" className="sign-out-btn" onClick={handlelogIn}>Sign in</button>
+          <button type="button" className="sign-out-btn" onClick={handlelogIn}>Sign in 🔑</button>
       )}
     </div>
   );

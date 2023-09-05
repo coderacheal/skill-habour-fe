@@ -1,4 +1,6 @@
 .reservation-container {
+  /* display: flex; */
+  text-align: center;
   width: 99.9%;
   min-height: 100vh;
   margin: 0 auto;

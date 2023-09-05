@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCourseDetails, fetchCourses } from '../features/courseSlice';
 import Dashboard from './Dashboard';
+import SignOutButton from './SignOutButton';
 import '../styles/CourseDetails.css';
 
 const CourseDetails = () => {
@@ -21,33 +22,35 @@ const CourseDetails = () => {
   const user = JSON.parse(localStorage.getItem('user'));
   const isLoggedIn = user !== null;
 
+  if (!selectedCourse) {
+    return <div>Course not found or loading...</div>;
+  }
+
   return (
     <div className="course-details-container wrapper">
       <Dashboard />
       <div className="oneCourse" key={selectedCourse.name}>
+        <SignOutButton />
         <div className="courseDetails">
-          <img src={selectedCourse.image} alt="course" className="image" />
-          <p className="course">
-            Course name:
-            {' '}
-            <br />
-            {selectedCourse.name}
-          </p>
-          {isLoggedIn ? (
-            <>
-              <p>Click Reserve button to make a reservation</p>
+          <img src={selectedCourse?.image} alt="course" className="course-image" />
+          <div className="full-course-description">
+            <h3>{selectedCourse?.name}</h3>
+            <p>{selectedCourse?.description}</p>
+            <p>
+              Price $
+              {selectedCourse?.price}
+              .00
+            </p>
+            {isLoggedIn ? (
               <Link to="/reservations">
-                <button type="button" className="btn btn-primary">Reserve</button>
+                <button type="button" className="enroll-btn">Enroll in course</button>
               </Link>
-            </>
-          ) : (
-            <>
-              <p>Please Register before making any reservation</p>
+            ) : (
               <Link to="/auth">
-                <button type="button" className="btn btn-primary">Register</button>
+                <button type="button" className="enroll-btn">Sign in to enroll</button>
               </Link>
-            </>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </div>
