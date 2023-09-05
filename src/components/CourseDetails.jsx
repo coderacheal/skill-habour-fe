@@ -26,7 +26,7 @@ const CourseDetails = () => {
   }
 
   return (
-    <div className="course-details-container wrapper">
+    <div className="wrapper">
       <Dashboard />
       <div className="oneCourse" key={selectedCourse.name}>
         <SignOutButton />

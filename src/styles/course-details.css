@@ -1,25 +1,19 @@
-.course-details-container {
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 80vh;
-  }
-  
   .oneCourse {
     height: 100vh;
     background-color: rgb(153, 249, 105);
     background-color: #f8f8f8;
-    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
+    /* text-align: center; */
+    background-color: rgb(153, 249, 105);
+
   }
   
   .courseDetails {
-    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    height: 100vh;
   }
-  
   
   .course-image {
     width: 80%;
@@ -36,6 +30,11 @@
     max-width: 80%;
     height: auto;
     border-radius: 30px;
+  }
+
+  .full-course-description {
+    height: 60%;
+    margin: auto;
   }
   
   .full-course-description h3 {
