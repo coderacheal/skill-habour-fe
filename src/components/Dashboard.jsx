@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { FaBars, FaTimes } from 'react-icons/fa';
 import logo from '../assets/skill-habour-logo.png';
 import Socials from './Socials';
 
@@ -9,10 +10,18 @@ const Dashboard = () => {
   // const loggedInUser = localStorage.getItem('user');
   const { pathname } = useLocation();
 
+  const navRef = useRef();
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+
+  const showNavbar = () => {
+    navRef.current.classList.toggle('responsive_nav');
+    setIsNavbarOpen(!isNavbarOpen);
+  };
+
   return (
     <div className="dashboard">
       <img src={logo} alt="Skill Share Logo" className="skill-share-logo" />
-      <div className="dashboardNavigations">
+      <div className="dashboardNavigations" ref={navRef}>
         <h2>Dashboard</h2>
         {
           user ? (
@@ -32,8 +41,19 @@ const Dashboard = () => {
           ? 'active' : ''}`}>Add Course</Link> */}
           <Link to="/delete_reservation" className={`links ${(pathname === '/delete_reservation') ? 'active' : ''}`}>Delete Reservation</Link>
         </ul>
+        <Socials />
       </div>
-      <Socials />
+      <div>
+        {isNavbarOpen ? (
+          <button className="nav-btn nav-close-btn" type="button" onClick={showNavbar}>
+            <FaTimes />
+          </button>
+        ) : (
+          <button className="nav-btn nav-open-btn" type="button" onClick={showNavbar}>
+            <FaBars />
+          </button>
+        )}
+      </div>
     </div>
   );
 };

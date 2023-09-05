@@ -55,9 +55,13 @@ function ReservationList() {
             {' '}
             <span className="value">{reservation.reservation_date}</span>
             <br />
-            <strong className="label">Price:</strong>
+            <strong className="label">Course duration:</strong>
             {' '}
-            <span className="value">{reservation.price}</span>
+            <span className="value">
+              {reservation.price}
+              {' '}
+              months
+            </span>
             <br />
           </li>
         ))}
@@ -67,20 +71,22 @@ function ReservationList() {
 
   return (
     <div className="reservation-list">
-      <SignOutButton />
-      {user ? (
-        <div>
-          <h2 className="title">My Reservations</h2>
-          <div className="reservations-list-items">
-            {content}
+      <div className="container">
+        <SignOutButton />
+        {user ? (
+          <div>
+            <h2 className="title">My Reservations</h2>
+            <div className="reservations-list-items">
+              {content}
+            </div>
           </div>
-        </div>
-      ) : (
-        <div className="no-user-my-reservations">
-          <p>No user is signed in yet</p>
-          <SignOutButton />
-        </div>
-      )}
+        ) : (
+          <div className="no-user-my-reservations">
+            <p>No user is signed in yet</p>
+            <SignOutButton />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
