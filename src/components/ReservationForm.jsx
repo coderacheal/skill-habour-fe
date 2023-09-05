@@ -19,7 +19,7 @@ const ReservationForm = () => {
   const [formData, setFormData] = useState({
     course_name: '',
     reservation_date: '',
-    price: '',
+    price: '', // Change the state key to price
     user_id: userId, // Set the user ID from local storage
   });
 
@@ -64,12 +64,12 @@ const ReservationForm = () => {
 
       if (response.ok) {
         setReservationStatus('Course successfully enrolled');
-        // Reset the form
+        // Reset the form, including the price field
         setFormData({
           course_name: '',
           reservation_date: '',
-          price: '',
-          user_id: userId, // Set the user ID from local storage
+          price: '', // Reset to empty
+          user_id: userId,
         });
       } else {
         setReservationStatus('Failed to create reservation');
@@ -117,15 +117,19 @@ const ReservationForm = () => {
           />
         </div>
         <div className="form-group">
-          <p className="price">Course Duration (in month):</p>
-          <input
-            type="number"
+          <p className="price">Course Duration:</p>
+          <select
             id="price"
             name="price"
             value={formData.price}
             onChange={handleChange}
             required
-          />
+          >
+            <option value="" disabled>Select Duration</option>
+            <option value="3">3 months</option>
+            <option value="6">6 months</option>
+            <option value="12">12 months</option>
+          </select>
         </div>
         <div className="form-group">
           <button type="submit">Submit Reservation</button>
