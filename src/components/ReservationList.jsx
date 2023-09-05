@@ -1,9 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import fetchDelete from '../features/deleteSlice';
 import '../styles/MyReservations.css';
 
 function ReservationList() {
   const [reservations, setReservations] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const dispatch = useDispatch();
+
+  const handleDelete = (e) => {
+    const { id } = e.target;
+    dispatch(fetchDelete(id));
+  };
 
   useEffect(() => {
     // Get the user ID from local storage
@@ -56,6 +65,14 @@ function ReservationList() {
             {' '}
             <span className="value">{reservation.price}</span>
             <br />
+            <button
+              type="button"
+              onClick={handleDelete}
+              data-id={reservation.id} // Add a data-id attribute with the ID
+            >
+              {reservation.id}
+              Delete
+            </button>
           </li>
         ))}
       </ul>
