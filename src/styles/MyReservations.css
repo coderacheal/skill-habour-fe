@@ -1,16 +1,25 @@
-/* ReservationList.css */
+.reservation-list {
+  background-color: rgb(153, 249, 105);
+  height: 100vh;
+
+  overflow-y: hidden;
+}
 
 .reservation-list .container {
-  width: 99.9%;
-  min-height: 81vh;
+  /* background: rgb(4, 38, 8); */
+  max-height: 87%;
   margin: 0 auto;
   padding: 20px;
   padding-top: 7%;
   font-family: Arial, sans-serif;
-  background-color: rgb(153, 249, 105);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border: 1px solid #ddd;
   border-radius: 5px;
+}
+
+.reservations-list-scrollable {
+  max-height: 600px;
+  overflow-y: auto;
 }
 
 .reservations-list-items {
@@ -37,7 +46,7 @@ ul {
   border: 1px solid #ccc;
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 30px;
-  height: 18vh;
+  /* height: 18vh; */
 }
 
 .label {
@@ -65,8 +74,16 @@ ul {
 }
 
 @media (max-width: 768px) {
+  .reservation-list {
+    height: 81vh;
+  }
+
+  .reservation-list .container {
+    max-height: 95%;
+  }
+
   .reservation-items {
-    width: 90%; /* Take full width on smaller screens */
+    width: 100%; 
   }
 
   .reservation-item {
