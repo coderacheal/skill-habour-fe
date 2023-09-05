@@ -1,11 +1,7 @@
   .oneCourse {
     height: 100vh;
-    background-color: rgb(153, 249, 105);
-    background-color: #f8f8f8;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    /* text-align: center; */
-    background-color: rgb(153, 249, 105);
 
   }
   
@@ -18,23 +14,20 @@
   .course-image {
     width: 80%;
     height: 80%;
-    border-radius: 5px;
+    border-radius: 15px;
     margin: auto;
+    box-shadow: 15px 15px 40px 0 rgba(0, 0, 0, 0.3);
+
   }
   
   .courseDetails .course {
     font-size: 25px;
   }
   
-  .image {
-    max-width: 80%;
-    height: auto;
-    border-radius: 30px;
-  }
-
   .full-course-description {
     height: 60%;
     margin: auto;
+    width: 80%;
   }
   
   .full-course-description h3 {
@@ -45,13 +38,15 @@
   .enroll-btn {
     background-color: transparent;
     font-weight: bold;
-    border: 0;
     border-radius: 30px;
-    color: blue;
-    padding: 0;
+    background-color: rgb(73, 147, 36);
+    color: white;
+    font-weight: bold;
+    padding: 15px;
     font-size: 15px;
     margin: 0;
     margin-top: 20px;
+    border: 0;
   }
   
   .btn-primary:hover {
