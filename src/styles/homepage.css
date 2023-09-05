@@ -78,6 +78,10 @@
   cursor: pointer;
 }
 
+.signout-div {
+  position: absolute;
+}
+
 @media screen and (max-width: 768px) {
   .wrapper {
     grid-template-columns: 100%;
@@ -89,10 +93,6 @@
 
   .availableClasses {
     margin-top: 30px;
-  }
-
-  .classThumbnail {
-    width: 100%;
   }
 
   .classDescription {
@@ -115,8 +115,5 @@
     margin: 0;
     cursor: pointer;
   }
-}
 
-.signout-div {
-  position: absolute;
 }

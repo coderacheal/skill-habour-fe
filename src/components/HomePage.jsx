@@ -30,13 +30,32 @@ const HomePage = () => {
   };
 
   const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    prevArrow: <CustomPrevArrow />,
-    nextArrow: <CustomNextArrow />,
+    responsive: [
+      {
+        breakpoint: 2024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          dots: false,
+          infinite: true,
+          speed: 500,
+          prevArrow: <CustomPrevArrow />,
+          nextArrow: <CustomNextArrow />,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: false,
+          infinite: true,
+          speed: 500,
+          prevArrow: <CustomPrevArrow />,
+          nextArrow: <CustomNextArrow />,
+        },
+      },
+    ],
   };
 
   return (
