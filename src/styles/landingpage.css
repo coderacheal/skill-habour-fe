@@ -40,7 +40,7 @@
   font-size: 17px;
   font-weight: bold;
   position: relative;
-  bottom: 40px;
+  bottom: 30px;
   transition: 0.5s;
 }
 
@@ -52,4 +52,24 @@
 .homeBtn:active {
   background-color: rgb(8, 195, 8);
   color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .brandNameWrapper {
+    height: 60%;
+    width: 90%;
+  }
+  
+  .brandName {
+    font-size: 90px;
+    font-weight: 700;
+  }
+  
+  .homeBtn {
+    background-color: rgb(8, 195, 8);
+    color: white;
+    text-decoration: none;
+    padding: 8px 25px;
+    bottom: 10px;
+  }
 }
