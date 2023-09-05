@@ -1,7 +1,6 @@
 .reservation-list {
   background-color: rgb(153, 249, 105);
   height: 100vh;
-
   overflow-y: hidden;
 }
 
@@ -46,6 +45,7 @@ ul {
   border: 1px solid #ccc;
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 30px;
+
   /* height: 18vh; */
 }
 
@@ -83,7 +83,7 @@ ul {
   }
 
   .reservation-items {
-    width: 100%; 
+    width: 100%;
   }
 
   .reservation-item {

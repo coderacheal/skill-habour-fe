@@ -2,6 +2,7 @@
   height: 100vh;
   background-color: rgb(153, 249, 105);
 }
+
 .oneCourse {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -63,15 +64,16 @@
     grid-template-columns: 100%;
     height: 80vh;
   }
-  
+
   .course-image {
     width: 70%;
     height: 70%;
   }
-  
+
   .courseDetails .course {
     font-size: 25px;
   }
+
   .full-course-description {
     width: 100%;
     height: 100%;
