@@ -7,6 +7,8 @@
 }
 
 .oneCourse {
+  height: 100vh;
+  background-color: rgb(153, 249, 105);
   background-color: #f8f8f8;
   padding: 20px;
   border-radius: 10px;
@@ -16,6 +18,13 @@
 
 .courseDetails {
   margin-top: 20px;
+}
+
+.course-image {
+  width: 80%;
+  height: 80%;
+  border-radius: 5px;
+  margin: auto;
 }
 
 .courseDetails .course {

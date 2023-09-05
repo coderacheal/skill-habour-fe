@@ -85,7 +85,8 @@
 
 .sign-out-btn:hover {
   color: blue;
-  text-decoration: underline;
+
+  /* text-decoration: underline; */
 }
 
 @media screen and (max-width: 768px) {
