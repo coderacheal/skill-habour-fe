@@ -31,6 +31,15 @@ const ReservationForm = () => {
     }
   }, [courses, selectedCourse]);
 
+  // Function to get the current date in the required format (YYYY-MM-DD)
+  const getCurrentDate = () => {
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+    const day = String(currentDate.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     const course = courses.find((course) => course.name === value);
@@ -114,6 +123,7 @@ const ReservationForm = () => {
             value={formData.reservation_date}
             onChange={handleChange}
             required
+            min={getCurrentDate()} // Restrict date selection to today and future dates
           />
         </div>
         <div className="form-group">
