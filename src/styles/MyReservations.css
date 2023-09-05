@@ -1,8 +1,8 @@
 /* ReservationList.css */
 
-.reservation-list {
+.reservation-list .container {
   width: 99.9%;
-  min-height: 100vh;
+  min-height: 81vh;
   margin: 0 auto;
   padding: 20px;
   padding-top: 7%;
@@ -50,6 +50,26 @@ ul {
 }
 
 .title {
+  display: flex;
   text-align: center;
   font-weight: bold;
+}
+
+.no-user-my-reservations {
+  display: flex;
+  width: 80%;
+
+  /* text-align: center; */
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+@media (max-width: 768px) {
+  .reservation-items {
+    width: 90%; /* Take full width on smaller screens */
+  }
+
+  .reservation-item {
+    height: auto;
+  }
 }

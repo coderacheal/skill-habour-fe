@@ -1,6 +1,8 @@
 .reservation-container {
+  /* display: flex; */
+  text-align: center;
   width: 99.9%;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0 auto;
   padding: 20px;
   background-color: rgb(153, 249, 105);
@@ -60,5 +62,10 @@ button[type="submit"]:hover {
 @media (max-width: 768px) {
   .reservation-container {
     border-radius: 0;
+    min-height: 81vh;
+  }
+
+  .reservation-form {
+    width: 90%;
   }
 }
