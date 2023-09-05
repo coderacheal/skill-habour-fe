@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FaBars, FaTimes } from 'react-icons/fa';
@@ -11,8 +11,11 @@ const Dashboard = () => {
   const { pathname } = useLocation();
 
   const navRef = useRef();
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+
   const showNavbar = () => {
     navRef.current.classList.toggle('responsive_nav');
+    setIsNavbarOpen(!isNavbarOpen);
   };
 
   return (
@@ -37,16 +40,20 @@ const Dashboard = () => {
           {/* <Link to="/add_course" className={` links ${(pathname === '/add_course')
           ? 'active' : ''}`}>Add Course</Link> */}
           <Link to="/delete_reservation" className={`links ${(pathname === '/delete_reservation') ? 'active' : ''}`}>Delete Reservation</Link>
-          <button className="nav-btn nav-close-btn" type="button" onClick={showNavbar}>
-            <FaTimes />
-          </button>
         </ul>
         <Socials />
       </div>
-
-      <button className="nav-btn nav-open-btn" type="button" onClick={showNavbar}>
-        <FaBars />
-      </button>
+      <div>
+        {isNavbarOpen ? (
+          <button className="nav-btn nav-close-btn" type="button" onClick={showNavbar}>
+            <FaTimes />
+          </button>
+        ) : (
+          <button className="nav-btn nav-open-btn" type="button" onClick={showNavbar}>
+            <FaBars />
+          </button>
+        )}
+      </div>
     </div>
   );
 };
