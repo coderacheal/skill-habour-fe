@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addNewCourse } from '../features/addCoureSlice'; // this will be gained from rudux after api done
+import { useNavigate } from 'react-router-dom';
+import { addNewCourse } from '../features/addCoureSlice';
 
 const AddCourse = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const storage = localStorage.getItem('token');
-  const user = JSON.parse(storage);
-  const [courseDatas, setCourseDatas] = useState({
+  // const storage = localStorage.getItem('token');
+  // const user = JSON.parse(storage);
+  const [courseData, setCourseData] = useState({
     name: '',
     description: '',
-    photo: '',
+    image: '',
     price: '',
-    user_id: user && user.id ? user.id : null,
+    // user_id: user.id || null,
   });
 
   const [success, setSuccess] = useState('');
@@ -21,7 +21,7 @@ const AddCourse = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!courseDatas.name || !courseDatas.price || !courseDatas.model || !courseDatas.photo) {
+    if (!courseData.name || !courseData.price || !courseData.image) {
       setError('Please Fill All The Fields');
       setTimeout(() => {
         setError('');
@@ -30,17 +30,16 @@ const AddCourse = () => {
     }
     const formData = new FormData();
 
-    formData.append('course[name]', courseDatas.name);
-    formData.append('course[description]', courseDatas.description);
-    formData.append('course[photo]', courseDatas.photo);
-    formData.append('course[price]', courseDatas.price);
-    formData.append('course[user_id]', courseDatas.user_id);
+    formData.append('course[name]', courseData.name);
+    formData.append('course[description]', courseData.description);
+    formData.append('course[image]', courseData.image);
+    formData.append('course[price]', courseData.price);
 
     await dispatch(addNewCourse(formData));
-    setCourseDatas({
+    setCourseData({
       name: '',
       description: '',
-      photo: '',
+      image: '',
       price: '',
     });
     setSuccess('Course Added Successfully');
@@ -48,7 +47,12 @@ const AddCourse = () => {
   };
 
   const handleChange = (e) => {
-    setCourseDatas({ ...courseDatas, [e.target.name]: e.target.value });
+    setCourseData({ ...courseData, [e.target.name]: e.target.value });
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setCourseData({ ...courseData, image: file });
   };
 
   return (
@@ -60,14 +64,14 @@ const AddCourse = () => {
           <h1 className="text-primary">Add New Course</h1>
           <form onSubmit={handleSubmit} className="w-100">
             <div className="mb-3">
-              <label htmlFor="coursename" className="form-label text-primary">
+              <label htmlFor="courseName" className="form-label text-primary">
                 Course Name
                 <input
                   type="text"
                   name="name"
-                  value={courseDatas.name}
+                  value={courseData.name}
                   onChange={handleChange}
-                  id="coursename"
+                  id="courseName"
                   className="form-control"
                   placeholder="Enter Course Name"
                 />
@@ -79,7 +83,7 @@ const AddCourse = () => {
                 <input
                   type="number"
                   name="price"
-                  value={courseDatas.price}
+                  value={courseData.price}
                   onChange={handleChange}
                   className="form-control"
                   id="coursePrice"
@@ -89,32 +93,26 @@ const AddCourse = () => {
             </div>
 
             <div className="mb-3">
-              <label htmlFor="carImage" className="form-label text-primary">
+              <label htmlFor="courseImage" className="form-label text-primary">
                 Course Image
-
                 <input
                   type="file"
                   accept="image/*"
-                  name="photo"
-                  onChange={(e) => {
-                    const file = e.target.files[0];
-                    setCourseDatas({ ...courseDatas, photo: file });
-                  }}
+                  name="image"
+                  onChange={handleImageChange}
                   className="form-control"
                   id="courseImage"
-                  placeholder="Enter your image url"
+                  placeholder="Upload Course Image"
                 />
-
               </label>
             </div>
 
             <div className="mb-3">
               <label htmlFor="courseDescription" className="form-label text-primary">
                 Course Description
-
                 <textarea
                   name="description"
-                  value={courseDatas.description}
+                  value={courseData.description}
                   onChange={handleChange}
                   className="form-control"
                   id="courseDescription"
