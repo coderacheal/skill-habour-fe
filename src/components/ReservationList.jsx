@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/MyReservations.css';
+import { useSelector } from 'react-redux';
+import SignOutButton from './SignOutButton';
 
 function ReservationList() {
   const [reservations, setReservations] = useState([]);
   const [loading, setLoading] = useState(true);
+  const user = useSelector((store) => store.auth.user);
 
   useEffect(() => {
     // Get the user ID from local storage
@@ -64,10 +67,20 @@ function ReservationList() {
 
   return (
     <div className="reservation-list">
-      <h2 className="title">My Reservations</h2>
-      <div className="reservations-list-items">
-        {content}
-      </div>
+      <SignOutButton />
+      {user ? (
+        <div>
+          <h2 className="title">My Reservations</h2>
+          <div className="reservations-list-items">
+            {content}
+          </div>
+        </div>
+      ) : (
+        <div className="no-user-my-reservations">
+          <p>No user is signed in yet</p>
+          <SignOutButton />
+        </div>
+      )}
     </div>
   );
 }

@@ -50,6 +50,16 @@ ul {
 }
 
 .title {
+  display: flex;
   text-align: center;
   font-weight: bold;
+}
+
+.no-user-my-reservations {
+  display: flex;
+  width: 80%;
+
+  /* text-align: center; */
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
 }
