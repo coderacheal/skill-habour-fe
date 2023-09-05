@@ -1,5 +1,6 @@
 .oneCourse {
   height: 100vh;
+  background-color: rgb(153, 249, 105);
 }
 
 .courseDetails {
@@ -11,7 +12,7 @@
 .course-image {
   width: 80%;
   height: 80%;
-  border-radius: 10px;
+  border-radius: 5px;
   margin: auto;
 }
 
