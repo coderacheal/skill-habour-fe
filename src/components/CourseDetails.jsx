@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCourseDetails, fetchCourses } from '../features/courseSlice';
 import Dashboard from './Dashboard';
 import SignOutButton from './SignOutButton';
-import '../styles/CourseDetails.css';
+// import '../styles/';
 
 const CourseDetails = () => {
   const { courses } = useSelector((store) => store.courses);
