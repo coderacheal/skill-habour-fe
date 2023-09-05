@@ -50,13 +50,6 @@
 </details>
 
 <details>
-<summary>Client</summary>
-  <ul>
-    <li><a href="https://www.postgresql.org/">ReactJS</a></li>
-  </ul>
-</details>
-
-<details>
 <summary>Database</summary>
   <ul>
     <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
