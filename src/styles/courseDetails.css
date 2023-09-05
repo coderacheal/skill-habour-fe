@@ -22,6 +22,11 @@
   line-height: 30px;
 }
 
+.full-course-description h3 {
+  font-size: 23px;
+  font-weight: bold;
+}
+
 .enroll-btn {
   background-color: transparent;
   font-weight: bold;
@@ -37,4 +42,31 @@
 .enroll-btn:hover {
   color: blue;
   text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .oneCourse {
+    height: 100vh;
+  }
+
+  .courseDetails {
+    display: grid;
+    grid-template-columns: 100%;
+    height: 80vh;
+  }
+
+  .course-image {
+    width: 70%;
+    height: 70%;
+  }
+
+  .full-course-description {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+
+  .enroll-btn {
+    margin-top: 30px;
+  }
 }

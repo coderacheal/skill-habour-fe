@@ -117,7 +117,7 @@ const ReservationForm = () => {
           />
         </div>
         <div className="form-group">
-          <p className="price">Price:</p>
+          <p className="price">Course Duration (in month):</p>
           <input
             type="number"
             id="price"
