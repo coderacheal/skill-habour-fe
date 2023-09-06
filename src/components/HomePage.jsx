@@ -12,23 +12,13 @@ import SignOutButton from './SignOutButton';
 
 const HomePage = () => {
   const { courses } = useSelector((store) => store.courses);
-  // const user = useSelector((store) => store.auth.user);
+  console.log(courses);
 
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchCourses());
   }, [dispatch]);
-
-  // const handlelogout = () => {
-  //   dispatch(logOutUser());
-  //   navigate('/courses');
-  // };
-
-  // const handlelogIn = () => {
-  //   navigate('/auth');
-  // };
 
   const settings = {
     responsive: [
@@ -70,7 +60,9 @@ const HomePage = () => {
         </div>
         <p className="fade">Select a course you would like to take</p>
         <p className="fade">{'.'.repeat(50)}</p>
-
+        {courses.length === 0 ? (
+          <p>No available courses</p>
+        ) : null}
         <div className="sliderDiv">
           {/* eslint-disable-next-line react/jsx-props-no-spreading */}
           <Slider {...settings} className="slider custom-slider">
