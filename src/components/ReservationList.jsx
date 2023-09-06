@@ -4,7 +4,7 @@ import '../styles/MyReservations.css';
 import fetchDelete from '../features/deleteSlice';
 import SignOutButton from './SignOutButton';
 
-function ReservationList() {
+const ReservationList = () => {
   const [reservations, setReservations] = useState([]);
   const [loading, setLoading] = useState(true);
   const user = useSelector((store) => store.auth.user);
