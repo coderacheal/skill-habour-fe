@@ -1,19 +1,11 @@
-
-  .oneCourse {
-    height: 100vh;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  }
-.wrapper-details {
+.oneCourse {
   height: 100vh;
-  background-color: rgb(153, 249, 105);
+  border-radius: 10px;
+ 
 }
 
-
-.oneCourse {
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  text-align: center;
+.wrapper-details {
+  height: 100vh;
 }
 
 .courseDetails {
@@ -27,6 +19,7 @@
   height: 80%;
   border-radius: 5px;
   margin: auto;
+  box-shadow: 15px 15px 40px 0 rgba(0, 0, 0, 0.3);
 }
 
 .courseDetails .course {
@@ -41,6 +34,7 @@
 
 .full-course-description {
   height: 60%;
+  width: 80%;
   margin: auto;
 }
 

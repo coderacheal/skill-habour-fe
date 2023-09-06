@@ -22,7 +22,7 @@ const CourseDetails = () => {
   const isLoggedIn = user !== null;
 
   if (!selectedCourse) {
-    return <div>Course not found or loading...</div>;
+    return <div>Page Loading...</div>;
   }
 
   return (

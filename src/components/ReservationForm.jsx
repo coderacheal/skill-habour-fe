@@ -99,7 +99,7 @@ const ReservationForm = () => {
       )}
       <form className="reservation-form" onSubmit={handleSubmit}>
         <div className="form-group">
-          <p className="course_name">Select a Course:</p>
+          <p className="course_name">Select a Course</p>
           <select
             id="course_name"
             name="course_name"
@@ -116,7 +116,7 @@ const ReservationForm = () => {
           </select>
         </div>
         <div className="form-group">
-          <p className="reservation_date">Select Reservation Date:</p>
+          <p className="reservation_date">Select Reservation Date</p>
           <input
             type="date"
             id="reservation_date"
@@ -128,7 +128,7 @@ const ReservationForm = () => {
           />
         </div>
         <div className="form-group">
-          <p className="price">Course Duration:</p>
+          <p className="price">Course Duration</p>
           <select
             id="price"
             name="price"
