@@ -91,8 +91,10 @@ function ReservationList() {
         {user ? (
           <div>
             <h2 className="title">My Reservations</h2>
-            <div className="reservations-list-items">
+            <div className="reservations-list-scrollable">
+            <div className="reservations-list-items ">
               {content}
+            </div>
             </div>
           </div>
         ) : (
