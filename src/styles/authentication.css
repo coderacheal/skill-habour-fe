@@ -31,7 +31,8 @@ form {
   margin-top: 30px;
 }
 
-input {
+input,
+textarea {
   padding: 15px;
   border: 0;
   width: 60%;
@@ -57,6 +58,10 @@ input {
   font-weight: bold;
   font-size: 18px;
   color: white;
+}
+
+.add-course-btn {
+  margin-top: 15px;
 }
 
 .error-msg-div {

@@ -27,7 +27,7 @@ const DeleteCourse = () => {
       <div className="deleteCoursesContainer">
         <SignOutButton />
         <div className="ribbon-and-authentication">
-          <h1 className="ribbon">ALL COURSES</h1>
+          <h1 className="add-course-ribbon">ALL COURSES</h1>
         </div>
         { user ? (
           <div className="all_courses">
@@ -35,11 +35,17 @@ const DeleteCourse = () => {
               <div key={course.id}>
                 <Link to={`/courses/${course.name}`} className="">
                   <div className="eachClass">
-                    <img src={course.image} alt="pottery class" className="classThumbnail" />
-                    <h2 className="courseName">{course.name}</h2>
+                    <img src={course.image} alt="pottery class" className="deleteClassThumbnail" />
                   </div>
                 </Link>
-                <button type="button" onClick={handleDelete} data-id={course.id}>Delete Course </button>
+                <div className="link-and-delete">
+                  <Link to={`/courses/${course.name}`}>
+                    <h2 className="courseName">
+                      {course.name}
+                    </h2>
+                  </Link>
+                  <button type="button" onClick={handleDelete} data-id={course.id} className="delete-course-btn">Delete</button>
+                </div>
               </div>
             ))}
           </div>

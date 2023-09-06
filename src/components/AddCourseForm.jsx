@@ -61,7 +61,7 @@ const AddCourseForm = () => {
       <div className="row">
         {user ? (
           <div className="">
-            <h1 className="text-primary">Add New Course</h1>
+            <h1 className="add-course-ribbon">Add New Course</h1>
             <p>{addFormNotice}</p>
             <form onSubmit={handleSubmit} className="">
               <div className="">
@@ -125,12 +125,12 @@ const AddCourseForm = () => {
                     id="courseDescription"
                     onChange={handleChange}
                     value={formData.price}
-                    rows="3"
+                    placeholder="Enter course price"
                   />
                 </label>
               </div>
               <div className="">
-                <input type="submit" className="btn btn-primary" value="Add Course" />
+                <button type="submit" className="btn btn-primary add-course-btn" value="Add Course">Add course</button>
               </div>
             </form>
           </div>
