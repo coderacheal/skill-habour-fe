@@ -130,7 +130,7 @@ To run the project, execute the following command:
 🤓 **Atif Zada**
 
 - GitHub: [@AtifZada](https://github.com/Atifzada)
-- LinkedIn: [Atif Zada]()
+- LinkedIn: [Atif Zada](https://www.linkedin.com/in/atif-zada)
 
 🤓 **Ouail Laraabi**
 
