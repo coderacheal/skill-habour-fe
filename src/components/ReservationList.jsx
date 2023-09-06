@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import '../styles/MyReservations.css';
@@ -92,9 +91,9 @@ function ReservationList() {
           <div>
             <h2 className="title">My Reservations</h2>
             <div className="reservations-list-scrollable">
-            <div className="reservations-list-items ">
-              {content}
-            </div>
+              <div className="reservations-list-items ">
+                {content}
+              </div>
             </div>
           </div>
         ) : (
