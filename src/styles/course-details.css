@@ -1,7 +1,6 @@
 .oneCourse {
   height: 100vh;
   border-radius: 10px;
- 
 }
 
 .wrapper-details {
@@ -67,25 +66,23 @@
   }
 
   .course-image {
-    width: 80%;
-    height: 80%;
     border-radius: 15px;
     margin: auto;
     box-shadow: 15px 15px 40px 0 rgba(0, 0, 0, 0.3);
     width: 70%;
     height: 70%;
-
   }
 
   .courseDetails .course {
     font-size: 25px;
   }
-  
+
   .full-course-description {
     height: 60%;
     margin: auto;
     width: 80%;
-/* 
+
+    /*
   .full-course-description {
     width: 100%;
     height: 100%;
@@ -93,8 +90,6 @@
   }
 
   .enroll-btn {
-    background-color: transparent;
-    font-weight: bold;
     border-radius: 30px;
     background-color: rgb(73, 147, 36);
     color: white;
@@ -102,7 +97,6 @@
     padding: 15px;
     font-size: 15px;
     margin: 0;
-    margin-top: 20px;
     border: 0;
     margin-top: 30px;
   }
