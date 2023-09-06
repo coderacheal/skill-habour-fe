@@ -40,3 +40,28 @@
   top: 15px;
   cursor: pointer;
 }
+
+@media (min-width: 320px) and (max-width: 589px) {
+  .all_courses {
+    display: grid;
+    width: 95%;
+    grid-template-columns: 1fr;
+    row-gap: 15px;
+    margin: auto;
+    justify-content: center;
+    height: 550px;
+    overflow-y: auto;
+  }
+}
+@media (min-width: 590px) and (max-width: 768px) {
+  .all_courses {
+    display: grid;
+    width: 95%;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 15px;
+    margin: auto;
+    justify-content: center;
+    height: 550px;
+    overflow-y: auto;
+  }
+}
