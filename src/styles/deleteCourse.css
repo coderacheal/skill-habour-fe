@@ -53,6 +53,7 @@
     overflow-y: auto;
   }
 }
+
 @media (min-width: 590px) and (max-width: 768px) {
   .all_courses {
     display: grid;
