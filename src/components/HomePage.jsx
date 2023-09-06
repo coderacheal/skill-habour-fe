@@ -7,28 +7,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { CustomNextArrow, CustomPrevArrow } from './CarouselArrows';
 import { fetchCourses } from '../features/courseSlice';
 import Dashboard from './Dashboard';
-// import { logOutUser } from '../features/authenticationSlice';
 import SignOutButton from './SignOutButton';
 
 const HomePage = () => {
   const { courses } = useSelector((store) => store.courses);
-  // const user = useSelector((store) => store.auth.user);
 
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchCourses());
   }, [dispatch]);
-
-  // const handlelogout = () => {
-  //   dispatch(logOutUser());
-  //   navigate('/courses');
-  // };
-
-  // const handlelogIn = () => {
-  //   navigate('/auth');
-  // };
 
   const settings = {
     responsive: [
