@@ -1,19 +1,18 @@
+/* eslint-disable */
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import fetchDelete from '../features/deleteSlice';
+import { useSelector, useDispatch } from 'react-redux';
 import '../styles/MyReservations.css';
-import { useSelector } from 'react-redux';
+import fetchDelete from '../features/deleteSlice';
 import SignOutButton from './SignOutButton';
 
 function ReservationList() {
   const [reservations, setReservations] = useState([]);
   const [loading, setLoading] = useState(true);
   const user = useSelector((store) => store.auth.user);
-
   const dispatch = useDispatch();
 
   const handleDelete = (e) => {
-    const { id } = e.target;
+    const { id } = e.target.dataset;
     dispatch(fetchDelete(id));
   };
 
@@ -77,7 +76,6 @@ function ReservationList() {
               onClick={handleDelete}
               data-id={reservation.id} // Add a data-id attribute with the ID
             >
-              {reservation.id}
               Delete
             </button>
           </li>
