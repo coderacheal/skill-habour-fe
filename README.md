@@ -132,10 +132,10 @@ To run the project, execute the following command:
 - GitHub: [@AtifZada](https://github.com/Atifzada)
 - LinkedIn: [Atif Zada](https://www.linkedin.com/in/atif-zada)
 
-🤓 **Ouail Laraabi**
+🤓 **Ouail Laarabi**
 
-- GitHub: [@Ouail-01](https://github.com/Ouail-01l)
-- LinkedIn: [Ouail Laraabi]()
+- GitHub: [@Ouail-01](https://github.com/Ouail-01)
+- LinkedIn: [Ouail Laraabi](https://www.linkedin.com/in/ouail-laarabi/)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

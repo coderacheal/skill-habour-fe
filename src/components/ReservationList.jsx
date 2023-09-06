@@ -106,6 +106,6 @@ const ReservationList = () => {
       </div>
     </div>
   );
-}
+};
 
 export default ReservationList;
