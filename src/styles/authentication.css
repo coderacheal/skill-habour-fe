@@ -31,6 +31,7 @@ form {
   margin-top: 30px;
 }
 
+
 input {
   padding: 15px;
   border: 0;
@@ -45,7 +46,7 @@ input {
   font-weight: bold;
   font-size: 17px;
   position: relative;
-  bottom: 3px;
+  top: 7px;
 }
 
 .submit-btn {
@@ -83,13 +84,22 @@ input {
 }
 
 @media screen and (max-width: 768px) {
+  .login-background {
+    height: 85vh;
+  }
+
   form {
     width: 75%;
     padding: 30px;
   }
 
+  .toggleAuthentication p{
+    font-size: 12px;
+    width: 100%;
+  }
+
   .toggleAuthentication {
-    width: 65%;
+    width: 85%;
     margin-top: 30px;
   }
 

@@ -57,6 +57,6 @@ button[type="submit"]:hover {
 @media (max-width: 768px) {
   .reservation-container {
     border-radius: 0;
-    min-height: 81vh;
+    min-height: 85vh;
   }
 }

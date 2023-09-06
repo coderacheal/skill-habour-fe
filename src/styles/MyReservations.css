@@ -1,6 +1,6 @@
 .reservation-list {
   background-color: rgb(153, 249, 105);
-  height: 100vh;
+  /* height: 100vh; */
   overflow-y: hidden;
 }
 
@@ -79,8 +79,9 @@ ul {
 }
 
 @media (max-width: 768px) {
+
   .reservation-list {
-    height: 81vh;
+    height: 85vh;
   }
 
   .reservation-list .container {
