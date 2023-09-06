@@ -84,7 +84,7 @@ input {
 
 @media screen and (max-width: 768px) {
   form {
-    width: 95%;
+    width: 75%;
     padding: 30px;
   }
 

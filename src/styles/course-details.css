@@ -1,25 +1,88 @@
+
   .oneCourse {
     height: 100vh;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-
   }
-  
+.wrapper-details {
+  height: 100vh;
+  background-color: rgb(153, 249, 105);
+}
+
+
+.oneCourse {
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.courseDetails {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  height: 100vh;
+}
+
+.course-image {
+  width: 80%;
+  height: 80%;
+  border-radius: 5px;
+  margin: auto;
+}
+
+.courseDetails .course {
+  font-size: 25px;
+}
+
+.image {
+  max-width: 80%;
+  height: auto;
+  border-radius: 30px;
+}
+
+.full-course-description {
+  height: 60%;
+  margin: auto;
+}
+
+.full-course-description h3 {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.enroll-btn {
+  background-color: transparent;
+  font-weight: bold;
+  border: 0;
+  border-radius: 30px;
+  color: blue;
+  padding: 0;
+  font-size: 15px;
+  margin: 0;
+  margin-top: 20px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+@media screen and (max-width: 768px) {
   .courseDetails {
     display: grid;
-    grid-template-columns: 70% 30%;
-    height: 100vh;
+    grid-template-columns: 100%;
+    height: 80vh;
   }
-  
+
   .course-image {
     width: 80%;
     height: 80%;
     border-radius: 15px;
     margin: auto;
     box-shadow: 15px 15px 40px 0 rgba(0, 0, 0, 0.3);
+    width: 70%;
+    height: 70%;
 
   }
-  
+
   .courseDetails .course {
     font-size: 25px;
   }
@@ -28,13 +91,13 @@
     height: 60%;
     margin: auto;
     width: 80%;
+/* 
+  .full-course-description {
+    width: 100%;
+    height: 100%;
+    text-align: center; */
   }
-  
-  .full-course-description h3 {
-    font-size: 23px;
-    font-weight: bold;
-  }
-  
+
   .enroll-btn {
     background-color: transparent;
     font-weight: bold;
@@ -47,46 +110,6 @@
     margin: 0;
     margin-top: 20px;
     border: 0;
+    margin-top: 30px;
   }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Responsive styles for smaller screens */
-  @media (max-width: 768px) {
-    .course-details-container {
-      min-height: 100vh;
-    }
-  
-    .oneCourse {
-      width: 100%;
-    }
-  }
-  
-  @media screen and (max-width: 768px) {
-    .oneCourse {
-      height: 100vh;
-    }
-  
-    .courseDetails {
-      display: grid;
-      grid-template-columns: 100%;
-      height: 80vh;
-    }
-  
-    .course-image {
-      width: 70%;
-      height: 70%;
-    }
-  
-    .full-course-description {
-      width: 100%;
-      height: 100%;
-      text-align: center;
-    }
-  
-    .enroll-btn {
-      margin-top: 30px;
-    }
-  }
+}

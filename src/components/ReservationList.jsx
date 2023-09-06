@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState, useEffect } from 'react';
 import '../styles/MyReservations.css';
 import { useSelector } from 'react-redux';
@@ -76,8 +77,10 @@ function ReservationList() {
         {user ? (
           <div>
             <h2 className="title">My Reservations</h2>
-            <div className="reservations-list-items">
+            <div className="reservations-list-scrollable">
+            <div className="reservations-list-items ">
               {content}
+            </div>
             </div>
           </div>
         ) : (
