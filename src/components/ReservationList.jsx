@@ -72,10 +72,11 @@ function ReservationList() {
             <br />
             <button
               type="button"
+              className="delete-reservation"
               onClick={handleDelete}
               data-id={reservation.id} // Add a data-id attribute with the ID
             >
-              Delete
+              Delete Reservation
             </button>
           </li>
         ))}
