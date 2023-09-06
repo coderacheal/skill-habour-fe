@@ -1,17 +1,26 @@
 import React, { useState } from 'react';
-import SignOutButton from './SignOutButton';// this will be gained from rudux after api done
+import { useDispatch } from 'react-redux';
+import SignOutButton from './SignOutButton';
+import { addNewCourse } from '../features/courseSlice';// this will be gained from rudux after api done
 
 const AddCourseForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     description: '',
-    image: '', // Change the state key to price
-    price: '', // Set the user ID from local storage
+    image: '',
+    price: '',
   });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const response = await fetch('http://127.0.0.1:3001/api/v1/courses', {
         method: 'POST',
@@ -50,6 +59,8 @@ const AddCourseForm = () => {
                 <input
                   type="text"
                   name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   id="coursename"
                   className="form-control"
                   placeholder="Enter Course Name"
@@ -62,9 +73,11 @@ const AddCourseForm = () => {
                 {' '}
                 <br />
                 <textarea
-                  name="price"
+                  name="description"
                   className="form-control"
+                  onChange={handleChange}
                   id="coursePrice"
+                  value={formData.description}
                   placeholder="Enter Course Description"
                 />
               </label>
@@ -77,12 +90,13 @@ const AddCourseForm = () => {
                 <br />
                 <input
                   type="text"
-                  name="photo"
+                  name="image"
+                  value={formData.image}
+                  onChange={handleChange}
                   className="form-control"
                   id="courseImage"
                   placeholder="Enter your image url"
                 />
-
               </label>
             </div>
 
@@ -93,9 +107,11 @@ const AddCourseForm = () => {
                 <br />
 
                 <input
-                  name="description"
+                  name="price"
                   className="form-control"
                   id="courseDescription"
+                  onChange={handleChange}
+                  value={formData.price}
                   rows="3"
                 />
               </label>
