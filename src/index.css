@@ -7,6 +7,7 @@
 @import './styles/authentication.css';
 @import './styles/course-details.css';
 @import './styles/add-course.css';
+@import './styles/deleteCourse.css';
 
 body {
   margin: 0;

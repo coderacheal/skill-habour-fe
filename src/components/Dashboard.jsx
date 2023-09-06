@@ -34,6 +34,7 @@ const Dashboard = () => {
         <ul className="navigation">
           <Link to="/courses" className={` links ${(pathname === '/courses') ? 'active' : ''}`}>Courses</Link>
           <Link to="/new_course" className={` links ${(pathname === '/new_course') ? 'active' : ''}`}>Add Course</Link>
+          <Link to="/delete_course" className={` links ${(pathname === '/delete_course') ? 'active' : ''}`}>Delete Course</Link>
           <Link to="/reservations" className={`links ${(pathname === '/reservations') ? 'active' : ''}`}>Reserve Course</Link>
           <Link to="/my_reservations" className={`links ${(pathname === '/my_reservations') ? 'active' : ''}`}>My Reservations</Link>
         </ul>

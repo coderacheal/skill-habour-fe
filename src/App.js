@@ -7,6 +7,7 @@ import HomePage from './components/HomePage';
 import CourseDetails from './components/CourseDetails';
 import Authentication from './components/Authentication';
 import AddCourse from './components/AddCourse';
+import DeleteCourse from './components/DeleteCourse';
 
 const App = () => (
   <Router>
@@ -19,7 +20,7 @@ const App = () => (
       <Route path="/add_course" element={<AddCourse />} />
       <Route path="/delete_reservation" element={<DeleteReservations />} />
       <Route path="/new_course" element={<AddCourse />} />
-      /
+      <Route path="/delete_course" element={<DeleteCourse />} />
       <Route path="/auth" element={<Authentication />} />
     </Routes>
   </Router>

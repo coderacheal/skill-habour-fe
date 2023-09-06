@@ -94,7 +94,6 @@ const HomePage = () => {
           </Slider>
         </div>
       </div>
-
     </div>
   );
 };

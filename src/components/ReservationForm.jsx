@@ -1,17 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-// import { fetchCourses } from '../features/courseSlice';
+import { useSelector } from 'react-redux';
 import '../styles/ReservationForm.css';
 
 const ReservationForm = () => {
-  // Get the user data from local storage
   const loggedInUser = JSON.parse(localStorage.getItem('user'));
   const userId = loggedInUser ? loggedInUser.id : ''; // Get the user ID
-
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(fetchCourses());
-  // }, [dispatch]);
 
   const { courses } = useSelector((state) => state.courses);
 

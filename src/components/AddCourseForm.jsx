@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import SignOutButton from './SignOutButton';
-import { addNewCourse } from '../features/courseSlice';// this will be gained from rudux after api done
+// import { addNewCourse } from '../features/courseSlice';// this will be gained from rudux after api done
 
 const AddCourseForm = () => {
+  const [addFormNotice, setaddFormNotice] = useState('')
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -18,6 +18,14 @@ const AddCourseForm = () => {
       [name]: value,
     });
   };
+
+  const handleErrorCourseNotice = () => {
+    setaddFormNotice('Could not add course')
+  }
+
+  const handleAddCourseNotice = () => {
+    setaddFormNotice('Course added successfully!')
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,11 +45,14 @@ const AddCourseForm = () => {
           image: '',
           price: '',
         });
+        handleAddCourseNotice()
       } else {
+        handleErrorCourseNotice()
       }
     } catch (error) {
     }
   };
+
   return (
     <div className="add-course">
       <SignOutButton />
@@ -50,6 +61,7 @@ const AddCourseForm = () => {
           <div className="alert alert-success">{}</div>
           <div className="alert alert-danger">{}</div>
           <h1 className="text-primary">Add New Course</h1>
+          <p>{addFormNotice}</p>
           <form onSubmit={handleSubmit} className="">
             <div className="mb-3">
               <label htmlFor="coursename" className="form-label text-primary">

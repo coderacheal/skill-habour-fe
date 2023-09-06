@@ -30,6 +30,23 @@ export const addNewCourse = createAsyncThunk(
   },
 );
 
+export const deleteCourse = (id) => async () => {
+  try {
+    const response = await fetch(`${baseUrl}/${id}`, {
+      method: 'DELETE',
+      mode: 'cors',
+    });
+
+    if (response.ok) {
+      window.location.reload();
+    }
+    return null;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
+
 const courseSlice = createSlice({
   name: 'courses',
   initialState: {
