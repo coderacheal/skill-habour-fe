@@ -1,13 +1,19 @@
-/* eslint-disable */
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import '../styles/MyReservations.css';
-import { useSelector } from 'react-redux';
+import fetchDelete from '../features/deleteSlice';
 import SignOutButton from './SignOutButton';
 
 function ReservationList() {
   const [reservations, setReservations] = useState([]);
   const [loading, setLoading] = useState(true);
   const user = useSelector((store) => store.auth.user);
+  const dispatch = useDispatch();
+
+  const handleDelete = (e) => {
+    const { id } = e.target.dataset;
+    dispatch(fetchDelete(id));
+  };
 
   useEffect(() => {
     // Get the user ID from local storage
@@ -64,6 +70,14 @@ function ReservationList() {
               months
             </span>
             <br />
+            <button
+              type="button"
+              className="delete-reservation"
+              onClick={handleDelete}
+              data-id={reservation.id} // Add a data-id attribute with the ID
+            >
+              Delete Reservation
+            </button>
           </li>
         ))}
       </ul>
@@ -78,9 +92,9 @@ function ReservationList() {
           <div>
             <h2 className="title">My Reservations</h2>
             <div className="reservations-list-scrollable">
-            <div className="reservations-list-items ">
-              {content}
-            </div>
+              <div className="reservations-list-items ">
+                {content}
+              </div>
             </div>
           </div>
         ) : (
