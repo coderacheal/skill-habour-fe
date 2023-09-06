@@ -6,6 +6,7 @@
 @import './styles/carousel_arrows.css';
 @import './styles/authentication.css';
 @import './styles/course-details.css';
+@import './styles/add-course.css';
 
 body {
   margin: 0;

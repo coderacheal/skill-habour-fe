@@ -1,7 +1,6 @@
-/* eslint-disable */
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchCourses } from '../features/courseSlice';
+// import { fetchCourses } from '../features/courseSlice';
 import '../styles/ReservationForm.css';
 
 const ReservationForm = () => {
@@ -9,10 +8,10 @@ const ReservationForm = () => {
   const loggedInUser = JSON.parse(localStorage.getItem('user'));
   const userId = loggedInUser ? loggedInUser.id : ''; // Get the user ID
 
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchCourses());
-  }, [dispatch]);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(fetchCourses());
+  // }, [dispatch]);
 
   const { courses } = useSelector((state) => state.courses);
 
@@ -128,7 +127,7 @@ const ReservationForm = () => {
           />
         </div>
         <div className="form-group">
-          <p className="price">Course Duration</p>
+          <p className="price">Course Duration:</p>
           <select
             id="price"
             name="price"

@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const baseUrl = ''; // Replace this with the appropriate API URL
+const baseUrl = 'http://127.0.0.1:3001/api/v1/courses'; // Replace this with the appropriate API URL
 
 export const addNewCourse = createAsyncThunk(
   'course/addNewCourse',
