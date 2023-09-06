@@ -1,16 +1,14 @@
 /* eslint-disable */
-const fetchDelete = async (id, url = 'http://localhost:3001/api/v1/courses/course_id/reservations') => {
+const fetchDelete = (id) => async () => {
   try {
-    const newUrl = `${url}?user_id=${id}`;
-    const response = await fetch(newUrl, {
+    const response = await fetch(`http://localhost:3001/api/v1/courses/course_id/reservations/${id}`, {
       method: 'DELETE',
       mode: 'cors',
     });
-    
-    // Await the response.json() method
-    const json = await response.json();
-    
-    return json;
+
+    if (response.ok) {
+      window.location.reload();
+    }
   } catch (error) {
     console.error(error);
     return error;
