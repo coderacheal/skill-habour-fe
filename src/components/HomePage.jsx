@@ -12,7 +12,6 @@ import SignOutButton from './SignOutButton';
 
 const HomePage = () => {
   const { courses } = useSelector((store) => store.courses);
-  console.log(courses);
 
   const dispatch = useDispatch();
 
@@ -56,7 +55,6 @@ const HomePage = () => {
         <SignOutButton />
         <div className="ribbon-and-authentication">
           <h1 className="ribbon">AVAILABLE COURSES</h1>
-
         </div>
         <p className="fade">Select a course you would like to take</p>
         <p className="fade">{'.'.repeat(50)}</p>

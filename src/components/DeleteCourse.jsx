@@ -26,24 +26,22 @@ const DeleteCourse = () => {
       <Dashboard />
       <div className="deleteCoursesContainer">
         <SignOutButton />
-
+        <div className="ribbon-and-authentication">
+          <h1 className="ribbon">ALL COURSES</h1>
+        </div>
         { user ? (
-          <div className="ribbon-and-authentication">
-            <h1 className="ribbon">ALL COURSES</h1>
-
-            <div className="all_courses">
-              {courses.map((course) => (
-                <div key={course.id}>
-                  <Link to={`/courses/${course.name}`} className="">
-                    <div className="eachClass">
-                      <img src={course.image} alt="pottery class" className="classThumbnail" />
-                      <h2 className="courseName">{course.name}</h2>
-                    </div>
-                  </Link>
-                  <button type="button" onClick={handleDelete} data-id={course.id}>Delete Course </button>
-                </div>
-              ))}
-            </div>
+          <div className="all_courses">
+            {courses.map((course) => (
+              <div key={course.id}>
+                <Link to={`/courses/${course.name}`} className="">
+                  <div className="eachClass">
+                    <img src={course.image} alt="pottery class" className="classThumbnail" />
+                    <h2 className="courseName">{course.name}</h2>
+                  </div>
+                </Link>
+                <button type="button" onClick={handleDelete} data-id={course.id}>Delete Course </button>
+              </div>
+            ))}
           </div>
         ) : (
           <p>Admin not logged in</p>
