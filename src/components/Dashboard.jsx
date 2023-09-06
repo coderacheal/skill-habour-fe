@@ -39,7 +39,9 @@ const Dashboard = () => {
           <Link to="/my_reservations" className={`links ${(pathname === '/my_reservations') ? 'active' : ''}`}>My Reservations</Link>
           {/* <Link to="/add_course" className={` links ${(pathname === '/add_course')
           ? 'active' : ''}`}>Add Course</Link> */}
-          <Link to="/delete_reservation" className={`links ${(pathname === '/delete_reservation') ? 'active' : ''}`}>Delete Reservation</Link>
+          {/* <Link to="/delete_reservation" className =
+          {`links ${(pathname === '/delete_reservation') ? 'active' : ''}`}>
+          Delete Reservation</Link> */}
         </ul>
         <Socials />
       </div>
