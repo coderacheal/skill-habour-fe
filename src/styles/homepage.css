@@ -90,6 +90,7 @@
     display: block;
     text-align: center;
   }
+
   .wrapper {
     grid-template-columns: 100%;
   }
@@ -127,5 +128,4 @@
     margin: auto;
     box-shadow: 15px 15px 40px 0 rgba(0, 0, 0, 0.3);
   }
-  
 }
