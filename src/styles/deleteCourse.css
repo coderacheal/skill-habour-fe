@@ -1,0 +1,68 @@
+.deleteCoursesContainer {
+  background-color: rgb(153, 249, 105);
+}
+
+.deleteClassThumbnail {
+  display: flex;
+  height: 250px;
+  width: 250px;
+  margin: auto;
+  box-shadow: 15px 15px 40px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  justify-content: center;
+}
+
+.all_courses {
+  display: grid;
+  width: 95%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  row-gap: 15px;
+  margin: auto;
+  justify-content: center;
+  height: 550px;
+  overflow-y: auto;
+}
+
+.link-and-delete {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  justify-content: space-around;
+}
+
+.delete-course-btn {
+  background-color: transparent;
+  border: 0;
+  color: blue;
+  font-weight: bold;
+  font-size: 17px;
+  position: relative;
+  top: 15px;
+  cursor: pointer;
+}
+
+@media (min-width: 320px) and (max-width: 589px) {
+  .all_courses {
+    display: grid;
+    width: 95%;
+    grid-template-columns: 1fr;
+    row-gap: 15px;
+    margin: auto;
+    justify-content: center;
+    height: 550px;
+    overflow-y: auto;
+  }
+}
+
+@media (min-width: 590px) and (max-width: 768px) {
+  .all_courses {
+    display: grid;
+    width: 95%;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 15px;
+    margin: auto;
+    justify-content: center;
+    height: 550px;
+    overflow-y: auto;
+  }
+}

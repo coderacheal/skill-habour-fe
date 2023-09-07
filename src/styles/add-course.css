@@ -1,0 +1,10 @@
+.add-course {
+  background-color: rgb(153, 249, 105);
+  height: 100vh;
+}
+
+.add-course-ribbon {
+  display: block;
+  text-align: center;
+  margin-top: 10vh;
+}

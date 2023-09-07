@@ -1,0 +1,17 @@
+.socials {
+  position: relative;
+  top: 115px;
+  width: 60%;
+  margin: auto;
+}
+
+.fa-brands {
+  margin-right: 15px;
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .socials {
+    width: 100%;
+  }
+}

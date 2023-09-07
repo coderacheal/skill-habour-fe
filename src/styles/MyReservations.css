@@ -1,0 +1,98 @@
+.reservation-list {
+  background-color: rgb(153, 249, 105);
+
+  /* height: 100vh; */
+  overflow-y: hidden;
+}
+
+.reservation-list .container {
+  max-height: 87%;
+  margin: 0 auto;
+  padding: 20px;
+  padding-top: 7%;
+  font-family: Arial, sans-serif;
+  border-radius: 5px;
+}
+
+.reservations-list-scrollable {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.reservations-list-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.reservation-items {
+  list-style-type: none;
+  padding: 0;
+  width: 50%;
+}
+
+.reservation-items .delete-reservation {
+  background: rgba(253, 0, 0, 0.437);
+  display: flex;
+  margin-top: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 10px;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.reservation-item {
+  margin-bottom: 15px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 30px;
+}
+
+.label {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.value {
+  color: #333;
+}
+
+.title {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+}
+
+.no-user-my-reservations {
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+@media (max-width: 768px) {
+  .reservation-list {
+    height: 85vh;
+  }
+
+  .reservation-list .container {
+    max-height: 95%;
+  }
+
+  .reservation-items {
+    width: 100%;
+  }
+
+  .reservation-item {
+    height: auto;
+  }
+}

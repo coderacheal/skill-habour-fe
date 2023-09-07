@@ -1,0 +1,97 @@
+.dashboard {
+  background-color: aliceblue;
+  z-index: 10;
+}
+
+.dashboard .nav-btn {
+  background: transparent;
+  border: none;
+  visibility: hidden;
+  opacity: 0;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.skill-share-logo {
+  height: 130px;
+  display: block;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.dashboardNavigations {
+  text-align: center;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 10px;
+}
+
+.links {
+  padding: 10px;
+  font-size: 18px;
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.active {
+  background-color: rgb(36, 175, 36);
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .dashboard {
+    height: 15vh;
+  }
+
+  .skill-share-logo {
+    height: 70px;
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 15%;
+  }
+
+  .dashboard .nav-btn {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .dashboardNavigations {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: rgb(177, 177, 201);
+    transition: 1s;
+    transform: translateY(-110vh);
+  }
+
+  .dashboard .responsive_nav {
+    transform: none;
+  }
+
+  .dashboard .nav-close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+
+  .dashboard .nav-open-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+}
