@@ -74,9 +74,9 @@
 <!-- ### [LIVE DEMO]() -->
 
 There are 3 team members in this group
-Racheal Appiah-kubi
-Atif Zada
-Ouail Laraabi
+- Racheal Appiah-kubi
+- Atif Zada
+- Ouail Laraabi
 
 ### [BACKEND REPOSITORY](https://github.com/coderacheal/skill-habour-be)
 ### [KANBAN BOARD](https://github.com/users/coderacheal/projects/5/views/1)
