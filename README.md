@@ -71,10 +71,16 @@
 <!-- LIVE DEMO -->
 
 # 🚀 Important Links <a name="important-links"></a>
-
 <!-- ### [LIVE DEMO]() -->
+
+There are 3 team members in this group
+Racheal Appiah-kubi
+Atif Zada
+Ouail Laraabi
+
 ### [BACKEND REPOSITORY](https://github.com/coderacheal/skill-habour-be)
 ### [KANBAN BOARD](https://github.com/users/coderacheal/projects/5/views/1)
+![image](https://github.com/coderacheal/skill-habour-fe/assets/97846040/a0130493-88a0-44e1-895d-3edd3290fed0)
 ### [API DOCUMENTATION]()
 
 
