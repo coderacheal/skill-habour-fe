@@ -35,9 +35,6 @@ const AuthenticationForm = () => {
       }),
     )
       .unwrap();
-    // .catch((error) => {
-    //   console.error('Login failed:', error);
-    // });
   };
 
   const handleRegister = () => {
@@ -47,15 +44,11 @@ const AuthenticationForm = () => {
           username,
           email,
           password,
+          role: email === 'rich@gmail.com' ? 'Admin' : 'user', // Check email and set role accordingly
         },
       }),
     )
-
       .unwrap();
-    // .catch((error) => {
-    //   console.error('Login failed:', error);
-    // });
-
     navigate('/courses');
   };
 
@@ -166,7 +159,6 @@ const AuthenticationForm = () => {
               </button>
             </div>
           )}
-
         </form>
       </div>
     </div>

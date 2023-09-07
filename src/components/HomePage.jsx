@@ -54,11 +54,12 @@ const HomePage = () => {
         <SignOutButton />
         <div className="ribbon-and-authentication">
           <h1 className="ribbon">AVAILABLE COURSES</h1>
-
         </div>
         <p className="fade">Select a course you would like to take</p>
         <p className="fade">{'.'.repeat(50)}</p>
-
+        {courses.length === 0 ? (
+          <p>No available courses</p>
+        ) : null}
         <div className="sliderDiv">
           {/* eslint-disable-next-line react/jsx-props-no-spreading */}
           <Slider {...settings} className="slider custom-slider">
@@ -82,7 +83,6 @@ const HomePage = () => {
           </Slider>
         </div>
       </div>
-
     </div>
   );
 };
