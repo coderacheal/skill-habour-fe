@@ -9,26 +9,26 @@ export const fetchCourses = createAsyncThunk('courses/fetchCourses', async () =>
   return data;
 });
 
-export const addNewCourse = createAsyncThunk(
-  'course/addNewCourse',
-  async (courseDetails, thunkAPI) => {
-    try {
-      const response = await axios.post(
-        `${baseUrl}`,
-        courseDetails,
-        {
-          headers: {
-            authorization: thunkAPI.getState().auth.token,
-          },
-        },
-      );
-      thunkAPI.dispatch(fetchCourses);
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue({ error: error.response.data });
-    }
-  },
-);
+// export const addNewCourse = createAsyncThunk(
+//   'course/addNewCourse',
+//   async (courseDetails, thunkAPI) => {
+//     try {
+//       const response = await axios.post(
+//         `${baseUrl}`,
+//         courseDetails,
+//         {
+//           headers: {
+//             authorization: thunkAPI.getState().auth.token,
+//           },
+//         },
+//       );
+//       thunkAPI.dispatch(fetchCourses);
+//       return response.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue({ error: error.response.data });
+//     }
+//   },
+// );
 
 export const deleteCourse = (id) => async () => {
   try {
