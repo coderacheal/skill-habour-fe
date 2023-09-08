@@ -10,7 +10,7 @@ import AddCourse from './components/AddCourse';
 import DeleteCourse from './components/DeleteCourse';
 
 const App = () => (
-  <Router basename="/skill-habour">
+  <Router>
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/courses" element={<HomePage />} />
