@@ -31,7 +31,7 @@ const AddCourseForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://127.0.0.1:3001/api/v1/courses', {
+      const response = await fetch('https://skill-habour.onrender.com/api/v1/courses', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
