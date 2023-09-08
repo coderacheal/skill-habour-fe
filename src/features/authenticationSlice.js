@@ -6,7 +6,7 @@ import {
   removeLocalStorage,
 } from '../Utils/localStorage';
 
-const baseUrl = 'http://127.0.0.1:3001';
+const baseUrl = 'https://skill-habour.onrender.com';
 
 const initialState = {
   token: getLocalStorage('token') || null,

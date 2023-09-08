@@ -1,6 +1,6 @@
 const fetchDelete = (id) => async () => {
   try {
-    const response = await fetch(`http://localhost:3001/api/v1/courses/course_id/reservations/${id}`, {
+    const response = await fetch(`https://skill-habour.onrender.com/api/v1/courses/course_id/reservations/${id}`, {
       method: 'DELETE',
       mode: 'cors',
     });

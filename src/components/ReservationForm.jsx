@@ -56,7 +56,7 @@ const ReservationForm = () => {
     formData.course_id = selectedCourse.id;
 
     try {
-      const response = await fetch(`http://127.0.0.1:3001/api/v1/courses/${formData.course_id}/reservations`, {
+      const response = await fetch(`https://skill-habour.onrender.com/api/v1/courses/${formData.course_id}/reservations`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

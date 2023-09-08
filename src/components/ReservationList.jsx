@@ -21,7 +21,7 @@ const ReservationList = () => {
     const userId = loggedInUser ? loggedInUser.id : '';
 
     // Replace with your actual API endpoint and include the user ID
-    const apiUrl = `http://localhost:3001/api/v1/courses/course_id/reservations?user_id=${userId}`;
+    const apiUrl = `https://skill-habour.onrender.com/api/v1/courses/course_id/reservations?user_id=${userId}`;
 
     fetch(apiUrl)
       .then((response) => response.json())

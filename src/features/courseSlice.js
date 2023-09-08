@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const baseUrl = 'http://127.0.0.1:3001/api/v1/courses';
+const baseUrl = 'https://skill-habour.onrender.com/api/v1/courses';
 
 export const fetchCourses = createAsyncThunk('courses/fetchCourses', async () => {
   const response = await fetch(baseUrl);
