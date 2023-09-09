@@ -13,6 +13,7 @@
 }
 
 .skill-share-logo {
+  border-radius: 50%;
   height: 130px;
   display: block;
   margin: auto;
